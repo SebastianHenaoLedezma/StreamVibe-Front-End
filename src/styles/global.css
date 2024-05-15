@@ -1,0 +1,30 @@
+@use './_variables' as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: --font-source;
+  display: grid;
+  place-content: center;
+  background-color: --black--color;
+  color: --white--color;
+}
+
+#root {
+  width: --mobile-width;
+  height: 100%;
+}
