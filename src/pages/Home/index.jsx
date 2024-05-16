@@ -1,12 +1,22 @@
-import './styles.css'
+import './styles.sass'
+import { FaPlay } from 'react-icons/fa';
+
 
 const Home = () => {
   return (
-    <main className='home3'>
-      <h1 className='text-3xl font-bold underline'>Home</h1>
-      <p>Some contents...</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla aliquid excepturi reprehenderit hic amet? Nisi aliquid error deserunt illum ducimus commodi iusto iure id harum alias aut, assumenda deleniti in!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor modi error, nulla fugiat nam necessitatibus, sit praesentium doloribus ratione maxime similique debitis iste a ipsum hic quae perferendis, non reiciendis?</p>
+    <main className='Home'>
+      <section className='containerHome'>
+        <div className='containerHome_banner'>
+        </div>
+        <div className='containerHome_description'>
+          <h1 className='containerHome_description-title'>The Best Streaming Experience</h1>
+          <p className="containerHome_description-paragraph">StreamVibe is the best streaming experience for watching your favorite movies and shows on demand, anytime, anywhere. With StreamVibe, you can enjoy a wide variety of content, including the latest blockbusters, classic movies, popular TV shows, and more. You can also create your own watchlists, so you can easily find the content you want to watch.</p>
+          <button className="containerHome_description-button">
+            <FaPlay className="button-icon" />
+              Start Watching Now
+          </button>
+        </div>
+      </section>
     </main>
   )
 }
