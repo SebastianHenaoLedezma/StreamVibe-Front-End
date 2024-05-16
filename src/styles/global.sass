@@ -1,0 +1,26 @@
+@use './variables.sass';
+
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+* 
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+html
+  font-size: 62.5%
+
+body
+  width: 100%
+  height: 100%
+  font-family: $font-source // Usar la variable Sass con $
+  display: grid
+  place-content: center
+  background-color: $black-color // Usar la variable Sass con $
+  color: $white-color // Usar la variable Sass con $
+
+#root
+  width: $mobile-width // Usar la variable Sass con $
+  height: 100%
