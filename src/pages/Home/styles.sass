@@ -3,58 +3,66 @@
 
 .Home
     width: 1920px
-    height: 5518px
-    background-color:  #1E1E1E
-    background-size: cover
     
 
 .containerHome
     width: 100%
     height: 100vh
-    background-color:  #1E1E1E
+    background-color:  $background-color
     position: absolute
     overflow: hidden
     &_banner
         width: 100%
-        height: 80%
+        height: 75%
         position: relative
         background-image: url("https://res.cloudinary.com/dhhyc88td/image/upload/v1715893138/Sub_Container_qlcvxf.png")
         background-size: cover
         background-position: center
     &_description
+        widht: 100%
         position: absolute
-        top: 80%
+        top: 83%
         left: 50%
         transform: translate(-50%, -50%)
         text-align: center
-        color: white
+        color: $white-color
         padding: 20px
         &-title
-            font-size: 78px
+            font-size: 40px
             font-family: Manrope
             font-weight: bold
         &-paragraph
-            font-size: 31px
+            font-size: 15px
             margin-bottom: 30px
-            color: $color-60
+            color: $color-gray-60
         &-button
-            width: 251px
-            height: 64px
+            width: 175px
+            height: 37px
             display: inline-flex
             align-items: center
-            padding: 10px 20px
-            background-color: $color-45
-            color: white
+            padding: 10px 10px
+            gap: 10px
+            background-color: $color-red-45
+            color: $white-color
             border: none
-            border-radius: 8px
-            font-size: 20px
+            border-radius: 5px
+            font-size: 10px
             cursor: pointer
             text-decoration: none
             .button-icon
-                margin-right: 10px
-                color: white // Color del ícono
-                border: none // Borde del ícono, en este caso sin borde
-                font-size: 16px // Tamaño del ícon
+                width: 20px 
+                margin-right: 5px 
+                margin-left: 20px
+                color: $white-color
+                border: none
+                font-size: 16px
 
+            .button-text 
+                flex: 1 
+                white-space: nowrap 
+                overflow: hidden 
+                text-overflow: ellipsis 
+                font-size: 18px 
+                border: 4px solid black
     
         
