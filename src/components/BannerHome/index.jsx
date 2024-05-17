@@ -1,7 +1,7 @@
 import './styles.sass'
 
 
-const ExploreCategories = () => {
+const BannerHome = () => {
   return (
     <section className='admin-content'>
       
@@ -9,4 +9,4 @@ const ExploreCategories = () => {
   )
 }
 
-export default ExploreCategories
+export default BannerHome

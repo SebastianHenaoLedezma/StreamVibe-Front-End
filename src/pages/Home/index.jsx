@@ -1,3 +1,6 @@
+import BannerHome from '../../components/BannerHome';
+import ExploreCategories from '../../components/ExploreCategories';
+import StreamingDevices from '../../components/StreamingDevices';
 import './styles.sass'
 import { FaPlay } from 'react-icons/fa';
 
@@ -17,6 +20,10 @@ const Home = () => {
           </button>
         </div>
       </section>
+      {/* <ExploreCategories />
+      <FrecuentlyQuestions />
+      <StreamingDevices />
+      <BannerHome /> */}
     </main>
   )
 }
