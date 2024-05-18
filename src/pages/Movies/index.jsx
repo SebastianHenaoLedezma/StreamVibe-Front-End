@@ -4,14 +4,14 @@ import movies from '../../components/data/movies.json';
 import IconPlay from '../../assets/movie/play.png';
 import IconAdd from '../../assets/movie/add.png';
 import Reviews from '../../components/Reviews';
-
-
+import InfoLanguageGenre from '../../components/Info';
+import CardDirecMusic from '../../components/DirectorMusic';
 
 const Movie = () => {
     return (
         <section className="movie">
             <section className="movie__main">
-                <img src="https://media.tycsports.com/files/2022/03/30/408821/halo-the-series-paramount-plus_862x485_wmk.jpg?v=1" alt="" className="movie__image" />
+                <img src={movies.trailer_url} alt="" className="movie__image" />
                 <div className="movie__details">
                     <h2 className="movie__title">{movies.title}</h2>
                     <p className="movie__description">
@@ -39,9 +39,6 @@ const Movie = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="movie__cast">
-                        {/* Aca va a ir el componente de cast */}
-                    </div>
                 </section>
                 <section className="movie__section movie__section-reviews">
                     <div className="movie__reviews-header">
@@ -62,35 +59,49 @@ const Movie = () => {
                             )}
                         </div>
                     </div>
-
-                    <div className="movie__pagination">
-                        {/* Aca van los botones de pagination */}
-                    </div>
                 </section>
                 <section className="movie__section movie__section-info">
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Released Year</h3>
-                        <p className="movie__text">2020</p>
+                        <p className="movie__text">{movies.year}</p>
                     </div>
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Available Languages</h3>
-                        {/* Componente de lenguajes */}
+                        <div className='movie__detail-container'>
+                            {movies.languages.map((info, index) => (
+                                <InfoLanguageGenre key={index} info={info} />
+                            ))}
+                        </div>
                     </div>
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Ratings</h3>
-                        {/* Componente de rating */}
+                        <div className="review-card__rating">
+                            {/* Estrellas pero me da error aun */}
+                        </div>
                     </div>
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Genre</h3>
-                        {/* Componente de géneros */}
+                        <div className='movie__detail-container'>
+                            {movies.genre.map((info, index) => (
+                                <InfoLanguageGenre key={index} info={info} />
+                            ))}
+                        </div>
                     </div>
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Director</h3>
-                        {/* Componente de director */}
+                        <div className='movie__detail-director-music'>
+                            {movies.director.map((info, index) => (
+                                <CardDirecMusic key={index} info={info} />
+                            ))}
+                        </div>
                     </div>
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Music</h3>
-                        {/* Componente de música */}
+                        <div className='movie__detail-director-music'>
+                            {movies.music.map((info, index) => (
+                                <CardDirecMusic key={index} info={info} />
+                            ))}
+                        </div>
                     </div>
                 </section>
             </section>
