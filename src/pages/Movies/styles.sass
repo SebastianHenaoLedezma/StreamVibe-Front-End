@@ -90,6 +90,9 @@
             grid-area: reviews
 
         &-info
+            display: flex
+            flex-direction: column
+            gap: 10px
             grid-area: info
 
     &__subtitle
@@ -140,6 +143,17 @@
 
     &__detail
         margin-bottom: 10px
+        gap: 10px
+
+        &-container
+            display: flex
+            flex-wrap: wrap
+            gap: 10px
+        
+        &-director-music
+            display: flex
+            flex-direction: column
+            gap: 15px
 
 .slick-track
     display: flex
