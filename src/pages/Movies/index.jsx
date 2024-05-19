@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.sass';
 import movies from '../../components/data/movies.json';
 import IconPlay from '../../assets/movie/play.png';
@@ -7,7 +7,34 @@ import Reviews from '../../components/Reviews';
 import InfoLanguageGenre from '../../components/Info';
 import CardDirecMusic from '../../components/DirectorMusic';
 
+import { faqs } from '../../services/apiService';
+
 const Movie = () => {
+
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const result = await faqs();
+                setData(result);
+            } catch (error) {
+                setError(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        getData();
+    }, []);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
+
+    console.log(data)
+
     return (
         <section className="movie">
             <section className="movie__main">
