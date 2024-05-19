@@ -1,5 +1,6 @@
 import BannerHome from '../../components/BannerHome';
 import ExploreCategories from '../../components/ExploreCategories';
+import FrecuentlyQuestions from '../../components/FrecuentlyQuestions';
 import StreamingDevices from '../../components/StreamingDevices';
 import './styles.sass'
 import { FaPlay } from 'react-icons/fa';
@@ -10,6 +11,7 @@ const Home = () => {
     <main className='Home'>
       <section className='containerHome'>
         <div className='containerHome_banner'>
+          <img src="https://res.cloudinary.com/dhhyc88td/image/upload/v1715893138/Sub_Container_qlcvxf.png" alt="" />
         </div>
         <div className='containerHome_description'>
           <h1 className='containerHome_description-title'>The Best Streaming Experience</h1>
@@ -20,10 +22,11 @@ const Home = () => {
           </button>
         </div>
       </section>
-      {/* <ExploreCategories />
-      <FrecuentlyQuestions />
-      <StreamingDevices />
-      <BannerHome /> */}
+        <StreamingDevices />
+        <FrecuentlyQuestions />
+      <div>
+        <img src="https://res.cloudinary.com/dhhyc88td/image/upload/v1716093298/Container_cdluor.png" alt="" />
+      </div>
     </main>
   )
 }
