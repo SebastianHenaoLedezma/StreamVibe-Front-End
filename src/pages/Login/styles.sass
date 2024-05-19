@@ -1,0 +1,42 @@
+@use '../../styles/variables.sass' as *
+
+.auth-switcher
+    background-color: $color-black-06
+
+.slide-left-enter 
+    transform: translateX(100%)
+    opacity: 0
+
+    &-active 
+        transform: translateX(0)
+        opacity: 1
+        transition: transform 500ms, opacity 500ms
+
+.slide-left-exit 
+    transform: translateX(0)
+    opacity: 1
+
+    &-active 
+        transform: translateX(-100%)
+        opacity: 0
+        transition: transform 500ms, opacity 500ms
+
+
+.slide-right-enter 
+    transform: translateX(-100%)
+    opacity: 0
+
+    &-active 
+        transform: translateX(0)
+        opacity: 1
+        transition: transform 500ms, opacity 500ms
+
+.slide-right-exit 
+    transform: translateX(0)
+    opacity: 1
+
+    &-active 
+        transform: translateX(100%)
+        opacity: 0
+        transition: transform 500ms, opacity 500ms
+

@@ -1,0 +1,65 @@
+@use '../../styles/variables.sass' as *
+    
+.review
+    margin-bottom: 20px
+    padding: 20px
+
+    &-card
+        background-color: $color-black-06
+        padding: 25px
+        border-radius: 8px
+        color: $white-color
+
+        &__header
+            display: flex
+            justify-content: space-between
+            align-items: center
+            margin-bottom: 10px
+
+        &__info
+            display: flex
+            flex-direction: column
+
+        &__author
+            font-size: 18px
+            font-weight: bold
+            margin: 0
+
+        &__rating
+            display: flex
+            align-items: center
+            background-color: $color-black-08
+            border: 1px solid $color-black-15
+            padding: 5px 10px
+            border-radius: 25px
+
+        &__rating-value
+            font-size: 16px
+            margin-left: 8px
+            color: $color-gray-60
+
+        &__text
+            font-size: 16px
+            color: $color-gray-60
+            margin: 0
+
+.star
+    font-size: 20px
+    color: $color-gray-60
+    margin-right: 2px
+    position: relative
+    cursor: pointer
+
+.filled
+    color: $color-red-45
+
+.half-filled
+    color: $color-red-45
+
+    &::before
+        content: '\2605'
+        color: $color-gray-60
+        position: absolute
+        left: 0
+        clip-path: inset(0 0 0 50%)
+
