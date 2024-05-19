@@ -6,6 +6,7 @@ import './index.css'
 import Home from './pages/Home/index.jsx'
 import Header from './components/Header'
 import './styles/global.sass'
+import Footer from './components/Footer'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
    <BrowserRouter>
       <Header />
       <AppRoutes />
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>,
 )
