@@ -1,9 +1,0 @@
-@import '../../styles/variables.css';
-
-.home3 {
-background-color: var(--primary-color);
-}
-
-p {
-    color: var(--primary--color);
-}
