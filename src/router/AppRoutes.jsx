@@ -7,11 +7,9 @@ import Reviews from '../components/Reviews'
 const AppRoutes = () => {
   return (
     <Routes>
-      {/* <Route path='home' element={<Home />} /> */}
-      {/* <Route path='/' element={<Home />} /> */}
-      {/* <Route path='login' element={<AuthSwitcher />} /> */}
-      <Route path='/' element={<Movie />} />
-      {/* <Route path='/' element={<Reviews />} /> */}
+      <Route path='home' element={<Home />} />
+      <Route path='/login' element={<AuthSwitcher />} />
+      <Route path='/' element={<Home />} />
     </Routes>
   )
 }
