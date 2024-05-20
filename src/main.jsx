@@ -8,13 +8,12 @@ import Header from './components/Header'
 import './styles/global.sass'
 import Footer from './components/Footer'
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
    <BrowserRouter>
       <Header />
       <AppRoutes />
       <Footer />
     </BrowserRouter>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
