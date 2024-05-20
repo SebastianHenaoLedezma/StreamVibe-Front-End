@@ -5,8 +5,40 @@ import StreamingDevices from '../../components/StreamingDevices';
 import './styles.sass'
 import { FaPlay } from 'react-icons/fa';
 
+import { getGenres, getFaqs } from '../../services/apiService';
+import { useEffect, useState } from 'react';
+
 
 const Home = () => {
+  const [genres, setGenres] = useState([]);
+  const [faqs, setFaqs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const genresResult = await getGenres();
+        setGenres(genresResult);
+
+        const faqsResult = await getFaqs();
+        setFaqs(faqsResult);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  console.log('Generos', genres);
+  console.log("Faqs", faqs);
+
   return (
     <main className='Home'>
       <section className='containerHome'>

@@ -7,7 +7,7 @@ import Reviews from '../../components/Reviews';
 import InfoLanguageGenre from '../../components/Info';
 import CardDirecMusic from '../../components/DirectorMusic';
 
-import { faqs } from '../../services/apiService';
+import { getFaqs } from '../../services/apiService';
 
 const Movie = () => {
 
