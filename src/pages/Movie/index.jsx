@@ -18,7 +18,7 @@ const Movie = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const result = await faqs();
+                const result = await getFaqs();
                 setData(result);
             } catch (error) {
                 setError(error);

@@ -2,7 +2,7 @@ import axios from './axiosConfig';
 
 export const getFaqs = async () => {
   try {
-    const response = await axios.get('/faqs');
+    const response = await axios.get('/faqs/');
     return response.data;
   } catch (error) {
     throw error;
@@ -11,7 +11,7 @@ export const getFaqs = async () => {
 
 export const getGenres = async () => {
   try {
-    const response = await axios.get('/genres');
+    const response = await axios.get('/genres/');
     return response.data;
   } catch (error) {
     throw error;
