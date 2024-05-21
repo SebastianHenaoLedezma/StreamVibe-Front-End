@@ -25,3 +25,21 @@ export const getMoviesByGenreId = async (genreId) => {
     throw error;
   }
 };
+
+export const registerUser = async (userData) => {
+  try {
+    const response = await axios.post('/users/create/', userData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const loginUser = async (userData) => {
+  try {
+    const response = await axios.post('/users/login/', userData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

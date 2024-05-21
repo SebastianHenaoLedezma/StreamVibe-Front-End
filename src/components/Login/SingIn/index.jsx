@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LogoSvg from "../../../assets/Logo_Streamvibe.svg";
 import imgFondo from "../../../assets/SubContainer.png";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../../services/apiService";
 
 import "../styles.sass";
 
@@ -10,18 +12,34 @@ const SingIn = ({ toggleComponent }) => {
     const [password, setPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         console.log("Email:", email);
         console.log("Password:", password);
         console.log("Remember Me:", rememberMe);
+
+        const userData = {
+            email: email,
+            password: password,
+        };
+
+        try {
+            const response = await loginUser(userData);
+            console.log("Usuario registrado correctamente:", response);
+            navigate('/movies');
+        } catch (error) {
+            console.error("Error al iniciar sesión:", error);
+            setError("Invalid email or password");
+        }
     };
 
     const toggleShowPassword = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
-      };
+    };
 
     return (
         <div className="login">

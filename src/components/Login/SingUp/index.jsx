@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LogoSvg from "../../../assets/Logo_Streamvibe.svg";
 import imgFondo from "../../../assets/SubContainer.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../styles.sass";
+import { registerUser } from "../../../services/apiService";
 
 const SingUp = ({ toggleComponent }) => {
   const [fullName, setFullName] = useState("");
@@ -11,8 +13,9 @@ const SingUp = ({ toggleComponent }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     console.log("Full Name:", fullName);
@@ -20,6 +23,27 @@ const SingUp = ({ toggleComponent }) => {
     console.log("Phone Number:", phoneNumber);
     console.log("Password:", password);
     console.log("Confirm Password:", confirmPassword);
+
+    if (password !== confirmPassword) {
+      console.error("Las contraseñas no coinciden");
+      return;
+    }
+
+
+    const userData = {
+      name: fullName,
+      email: email,
+      phone: phoneNumber,
+      password: password
+    };
+
+    try {
+      const newUser = await registerUser(userData);
+      console.log("Usuario registrado correctamente:", newUser);
+      navigate('/movies');
+    } catch (error) {
+      console.error("Error al registrar usuario:", error);
+    }
   };
 
   const toggleShowPassword = () => {
