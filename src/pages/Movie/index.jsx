@@ -6,6 +6,8 @@ import IconAdd from '../../assets/movie/add.png';
 import Reviews from '../../components/Reviews';
 import InfoLanguageGenre from '../../components/Info';
 import CardDirecMusic from '../../components/DirectorMusic';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 import { getFaqs } from '../../services/apiService';
 
@@ -14,6 +16,10 @@ const Movie = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [open, setOpen] = useState(false);
+
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
 
     useEffect(() => {
         const getData = async () => {
@@ -70,10 +76,26 @@ const Movie = () => {
                 <section className="movie__section movie__section-reviews">
                     <div className="movie__reviews-header">
                         <h3 className="movie__subtitle">Reviews</h3>
-                        <button className="movie__button">
+                        <button className="movie__button" onClick={onOpenModal}>
                             <img src={IconAdd} alt="" className="movie__button-icon" />
                             Add Your Review
                         </button>
+                        <Modal
+                            open={open}
+                            onClose={onCloseModal}
+                            center
+                            classNames={{
+                                overlay: 'bg-gradient-to-r from-red-300',
+                                modal: 'bg-neutral-800',
+                            }}>
+                            <h2 >Simple centered modal</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                                pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+                                hendrerit risus, sed porttitor quam.
+                            </p>
+                        </Modal>
+
                     </div>
                     <div className="movie__reviews-slider">
                         <div className="movie__reviews">
