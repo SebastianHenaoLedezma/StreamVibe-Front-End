@@ -1,13 +1,92 @@
 
+import { useEffect, useState } from "react"
+import TopGenres from "../../../components/PopularMovies/genres"
 import DescriptionMovie from "./descriptionMovie"
 import MovieHeader from "./movieHeader"
+import { getGenres } from "../../../services/apiService"
+import NewReleases from "../../../components/PopularMovies/newReleases"
+import MustWatch from "../../../components/PopularMovies/mustWatch"
 
 
 const Movies = () => {
   let desc = "With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face... Avenge the fallen."
+
+  // const [genres, setGenres] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const getResults = await getGenres();
+  //       setGenres(getResults);
+  //       console.log(getResults)
+
+  //     } catch (error) {
+  //       setError(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   getData();
+  // }, []);
+  let genres = [
+    {
+      name: "Action",
+      img: [
+        "src/assets/movie/captainAmerica.png",
+        "src/assets/movie/captainAmerica.png",
+        "src/assets/movie/captainAmerica.png",
+        "src/assets/movie/captainAmerica.png",
+      ]
+    },
+    {
+      name: "Comedia",
+      img: [
+        "src/assets/movie/captainAmerica.png",
+        "src/assets/movie/captainAmerica.png",
+        "src/assets/movie/captainAmerica.png",
+        "src/assets/movie/captainAmerica.png",
+      ]
+    }
+  ]
+
+  let releases = [
+    {
+      img: 'src/assets/movie/captainAmerica.png',
+      date: '14 April 2023'
+    }, {
+      img: 'src/assets/movie/captainAmerica.png',
+      date: '14 April 2069'
+    },
+    {
+      img: 'src/assets/movie/captainAmerica.png',
+      date: '14 April 1954'
+    }
+  ]
+
+  let mustWatch = [
+    {
+      img: 'src/assets/movie/captainAmerica.png',
+      duration: '1h 57 min',
+      rate: 5
+    },
+    {
+      img: 'src/assets/movie/captainAmerica.png',
+      duration: '1h 57 min',
+      rate: 5
+    },
+    {
+      img: 'src/assets/movie/captainAmerica.png',
+      duration: '1h 57 min',
+      rate: 5
+    }
+  ]
+
   return (
 
-    <section className="p-4 grid grid-cols-1">
+    <section className="p-4 grid grid-cols-1 gap-2">
       <MovieHeader img="src/assets/movie/captainAmerica.png" />
       <DescriptionMovie title="Avenger:Endgame" desc={desc} />
       <div className="flex justify-center mt-2 items-center  -translate-y-36">
@@ -19,6 +98,40 @@ const Movies = () => {
           </svg>
         </button>
       </div>
+
+      <section className="">
+        <h2>Our Genres</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
+          <div className="bg-rose-200">01</div>
+          <div className="bg-rose-200">02</div>
+          <div className="bg-rose-200">03</div>
+          <div className="bg-rose-200">04</div>
+        </div>
+      </section>
+      <section className="">
+        <h2>Popular Top 10 In Genres</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
+          {genres.map((genre, index) => (
+            <TopGenres key={index} genres={genre} />
+          ))}
+        </div>
+      </section>
+      <section className="">
+        <h2>New Releases </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
+          {releases.map((release, index) => (
+            <NewReleases key={index} release={release} />
+          ))}
+        </div>
+      </section>
+      <section className="">
+        <h2>Must - Watch Movies </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
+          {mustWatch.map((movie, index) => (
+            <MustWatch key={index} movie={movie} />
+          ))}
+        </div>
+      </section>
     </section>
 
 
