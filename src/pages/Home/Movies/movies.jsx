@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import TopGenres from "../../../components/PopularMovies/genres"
 import DescriptionMovie from "./descriptionMovie"
 import MovieHeader from "./movieHeader"
-import { getGenres } from "../../../services/apiService"
+import { getMovieRandom, getGenres, getMoviesNewReleases, getMoviesMustWatch } from "../../../services/apiService"
 import NewReleases from "../../../components/PopularMovies/newReleases"
 import MustWatch from "../../../components/PopularMovies/mustWatch"
 
@@ -11,78 +11,48 @@ import MustWatch from "../../../components/PopularMovies/mustWatch"
 const Movies = () => {
   let desc = "With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face... Avenge the fallen."
 
-  // const [genres, setGenres] = useState([]);
+
+  const [randomMovie, setRandomMovie] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [newReleases, setNewReleases] = useState([]);
+  const [mustWatch, setMustWatch] = useState([]);
+  
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     try {
-  //       const getResults = await getGenres();
-  //       setGenres(getResults);
-  //       console.log(getResults)
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const randomMovieResult = await getMovieRandom();
+        setRandomMovie(randomMovieResult);
 
-  //     } catch (error) {
-  //       setError(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+        const genresResult = await getGenres();
+        setGenres(genresResult);
 
-  //   getData();
-  // }, []);
-  let genres = [
-    {
-      name: "Action",
-      img: [
-        "src/assets/movie/captainAmerica.png",
-        "src/assets/movie/captainAmerica.png",
-        "src/assets/movie/captainAmerica.png",
-        "src/assets/movie/captainAmerica.png",
-      ]
-    },
-    {
-      name: "Comedia",
-      img: [
-        "src/assets/movie/captainAmerica.png",
-        "src/assets/movie/captainAmerica.png",
-        "src/assets/movie/captainAmerica.png",
-        "src/assets/movie/captainAmerica.png",
-      ]
-    }
-  ]
+        const newReleasesResult = await getMoviesNewReleases();
+        setNewReleases(newReleasesResult);
 
-  let releases = [
-    {
-      img: 'src/assets/movie/captainAmerica.png',
-      date: '14 April 2023'
-    }, {
-      img: 'src/assets/movie/captainAmerica.png',
-      date: '14 April 2069'
-    },
-    {
-      img: 'src/assets/movie/captainAmerica.png',
-      date: '14 April 1954'
-    }
-  ]
+        const mustWatchResult = await getMoviesMustWatch();
+        setMustWatch(mustWatchResult);
 
-  let mustWatch = [
-    {
-      img: 'src/assets/movie/captainAmerica.png',
-      duration: '1h 57 min',
-      rate: 5
-    },
-    {
-      img: 'src/assets/movie/captainAmerica.png',
-      duration: '1h 57 min',
-      rate: 5
-    },
-    {
-      img: 'src/assets/movie/captainAmerica.png',
-      duration: '1h 57 min',
-      rate: 5
-    }
-  ]
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  console.log('Random', randomMovie)
+  console.log('Genres', genres)
+  console.log("New Releases", newReleases)
+  console.log('Must Watch', mustWatch)
+
 
   return (
 
@@ -111,7 +81,7 @@ const Movies = () => {
       <section className="">
         <h2>Popular Top 10 In Genres</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
-          {genres.map((genre, index) => (
+          {genres?.map((genre, index) => (
             <TopGenres key={index} genres={genre} />
           ))}
         </div>
