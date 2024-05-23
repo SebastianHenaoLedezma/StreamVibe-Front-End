@@ -89,7 +89,7 @@ const Movies = () => {
       <section className="">
         <h2>New Releases </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
-          {releases.map((release, index) => (
+          {newReleases.map((release, index) => (
             <NewReleases key={index} release={release} />
           ))}
         </div>
