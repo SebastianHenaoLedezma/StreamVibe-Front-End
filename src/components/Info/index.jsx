@@ -4,7 +4,7 @@ import './styles.sass';
 const InfoLanguageGenre = ({info}) => {
   return (
     <div className='InfoLanguageGenre'>
-        <h3 className='InfoLanguageGenre__title'>{info}</h3>
+        <h3 className='InfoLanguageGenre__title'>{info.name}</h3>
     </div>
   )
 }

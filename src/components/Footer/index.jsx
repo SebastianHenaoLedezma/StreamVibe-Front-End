@@ -1,14 +1,19 @@
 import React from 'react'
 
 const index = () => {
+
+  const handleButtonClick = (path) => {
+    navigate(path);
+  };
+
   return (
     <>
 
-      <div className="px-4 flex-auto w-100">
+      <div className="px-4 flex-auto w-100 bg-[#0F0F0F]">
         <div className="flex">
           <div className="flex-auto">
-            <p className='font-bold my-4'>Home</p>
-            <p className='my-4'>Categories</p>
+            <p className='cursor-pointer font-bold my-4' onClick={() => handleButtonClick('/')}>Home</p>
+            <p className='my-4' >Categories</p>
             <p className='my-4'>Devices</p>
             <p className='my-4'>FAQ</p>
           </div>
@@ -69,11 +74,11 @@ const index = () => {
         </div>
       </div>
 
-      <div className="px-4 flex ">
+      <div className="px-4 flex bg-[#0F0F0F] ">
         <div className="flex-auto w-50 ">
           <p>@2023 streamvib, All Rights Reserved</p>
         </div>
-        <div className="border flex-auto w-50">
+        <div className="border-2 flex-auto w-50">
           <div className="flex justify-end">
             <p className='ps-8'>Terms of Use</p>
             <p className='ps-8'>Privacy Policy</p>

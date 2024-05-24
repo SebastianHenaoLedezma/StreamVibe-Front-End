@@ -18,12 +18,6 @@ const SingUp = ({ toggleComponent }) => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    console.log("Full Name:", fullName);
-    console.log("Email:", email);
-    console.log("Phone Number:", phoneNumber);
-    console.log("Password:", password);
-    console.log("Confirm Password:", confirmPassword);
-
     if (password !== confirmPassword) {
       console.error("Las contraseñas no coinciden");
       return;

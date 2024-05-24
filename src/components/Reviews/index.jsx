@@ -3,8 +3,11 @@ import './styles.sass';
 import IconEdit from '../../assets/movie/edit.png';
 import IconClose from '../../assets/movie/close.png';
 import ReactStars from "react-rating-stars-component";
+import { updateReview, deleteReview } from '../../services/apiService';
 
-const Reviews = ({ review }) => {
+const Reviews = ({ review, onDelete, onUpdate }) => {
+    const [isEditing, setIsEditing] = useState(false);
+    const [newReview, setNewReview] = useState(review.review);
     const [rating, setRating] = useState(review.rating || 0);
     const [hoverRating, setHoverRating] = useState(0);
     const [averageRating, setAverageRating] = useState(review.rating || 0);
@@ -14,60 +17,36 @@ const Reviews = ({ review }) => {
         setAverageRating(newRating);
     }, [rating, review.rating]);
 
-    const renderStars = (currentRating) => {
-        const stars = [];
-        for (let i = 1; i <= 5; i++) {
-            if (i <= Math.floor(rating)) {
-                stars.push(
-                    <span
-                        key={i}
-                        className={`star filled`}
-                        onClick={() => setRating(i)}
-                        onMouseEnter={() => setHoverRating(i)}
-                        onMouseLeave={() => setHoverRating(0)}
-                    >
-                        &#9733;
-                    </span>
-                );
-            } else if (i <= Math.ceil(rating)) {
-                stars.push(
-                    <span
-                        key={i}
-                        className={`star half-filled`}
-                        onClick={() => setRating(i)}
-                        onMouseEnter={() => setHoverRating(i)}
-                        onMouseLeave={() => setHoverRating(0)}
-                    >
-                        &#9733;
-                    </span>
-                );
-            } else {
-                stars.push(
-                    <span
-                        key={i}
-                        className={`star`}
-                        onClick={() => setRating(i)}
-                        onMouseEnter={() => setHoverRating(i)}
-                        onMouseLeave={() => setHoverRating(0)}
-                    >
-                        &#9733;
-                    </span>
-                );
-            }
+    const handleEdit = async () => {
+        const updatedReview = { ...review, review: newReview, rating: averageRating };
+        try {
+            await updateReview(review.id, updatedReview);
+            onUpdate(updatedReview);
+            setIsEditing(false);
+        } catch (error) {
+            console.error('Error:', error);
         }
-        return stars;
     };
 
+    const handleDelete = async () => {
+        try {
+            await deleteReview(review.id);
+            onDelete(review.id);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const ratingStart = review.average_rating?.rating__avg || 0;
+    // console.log(ratingStart)
     const thirdExample = {
         size: 15,
         count: 5,
-        value: 4,
+        value: ratingStart,
         color: "white",
         activeColor: "red",
-        onChange: newValue => {
-          console.log(`Example 3: new value is ${newValue}`);
-        }
-      };
+        isHalf: true,
+    };
 
     return (
         <div className="review">
@@ -78,17 +57,29 @@ const Reviews = ({ review }) => {
                     </div>
                     <div className="review-card__rating">
                         <ReactStars {...thirdExample} />
-                        {/* {renderStars(hoverRating || averageRating)}
-                        <span className="review-card__rating-value">{averageRating.toFixed(1)}</span> */}
                     </div>
                 </div>
-                <p className="review-card__text">{review.text}</p>
+                {isEditing ? (
+                    <textarea
+                        value={newReview}
+                        onChange={(e) => setNewReview(e.target.value)}
+                        className="form-textarea"
+                    />
+                ) : (
+                    <p className="review-card__text">{review.review}</p>
+                )}
                 <div className="flex justify-end gap-4">
-                    <button className="">
-                        <img src={IconEdit} alt="" className="movie__button-icon" />
-                    </button>
-                    <button className="">
-                        <img src={IconClose} alt="" className="movie__button-icon" />
+                    {isEditing ? (
+                        <button onClick={handleEdit}>
+                            Save
+                        </button>
+                    ) : (
+                        <button onClick={() => setIsEditing(true)}>
+                            <img src={IconEdit} alt="Edit" className="movie__button-icon" />
+                        </button>
+                    )}
+                    <button onClick={handleDelete}>
+                        <img src={IconClose} alt="Delete" className="movie__button-icon" />
                     </button>
                 </div>
             </div>

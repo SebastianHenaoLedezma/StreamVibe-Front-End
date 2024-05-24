@@ -18,10 +18,6 @@ const SingIn = ({ toggleComponent }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log("Email:", email);
-        console.log("Password:", password);
-        console.log("Remember Me:", rememberMe);
-
         const userData = {
             email: email,
             password: password,

@@ -38,8 +38,6 @@ const Home = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  console.log('Generos', genres);
-  console.log("Faqs", faqs);
 
   return (
     <main className="Home">
@@ -78,7 +76,7 @@ const Home = () => {
           </p>
         </div>
         <div className="exploreCategories">
-          {jsonGeneros.map((genero, index) => (
+          {genres.map((genero, index) => (
             <Generos genero={genero} key={index}/>
           ))}
         </div>
@@ -111,7 +109,7 @@ const Home = () => {
           </div>
         </div>
         <div className="containerQuestions__exploreQuestions">
-          {jsonQuestions.map((pregunta, index) => (
+          {faqs.map((pregunta, index) => (
             <FrecuentlyQuestions pregunta={pregunta} key={index} numbers={index + 1} />
           ))}
         </div>

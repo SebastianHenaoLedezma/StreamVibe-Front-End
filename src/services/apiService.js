@@ -27,6 +27,33 @@ export const getMovieRandom = async () => {
   }
 };
 
+export const getMoviesByGenreId = async (genreId) => {
+  try {
+    const response = await axios.get(`/genres/${genreId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getTopGenres = async () => {
+  try {
+    const response = await axios.get('/genres-top/');
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getMoviesTopByGenreId = async (genreId) => {
+  try {
+    const response = await axios.get(`/genres-top/${genreId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 export const getMoviesNewReleases = async () => {
   try {
@@ -46,26 +73,9 @@ export const getMoviesMustWatch = async () => {
   }
 };
 
-export const getMoviesByGenreId = async (genreId) => {
+export const getMovieById = async (movieId) => {
   try {
-    const response = await axios.get(`/genres/${genreId}`);
-  } catch (error) {
-    throw error;
-  }
-};
-
-export const registerUser = async (userData) => {
-  try {
-    const response = await axios.post('/users-create/', userData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
-export const loginUser = async (userData) => {
-  try {
-    const response = await axios.post('/users-login/', userData);
+    const response = await axios.get(`/movies/${movieId}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -74,7 +84,7 @@ export const loginUser = async (userData) => {
 
 export const createReview = async (reviewData) => {
   try {
-    const response = await axios.post('/reviews-create/', reviewData);
+    const response = await axios.post(`/movies/${reviewData.movie_id}/reviews/`, reviewData);
     return response.data;
   } catch (error) {
     throw error;
@@ -93,6 +103,26 @@ export const updateReview = async (reviewId, reviewData) => {
 export const deleteReview = async (reviewId) => {
   try {
     const response = await axios.delete(`/reviews-delete/${reviewId}/`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
+export const registerUser = async (userData) => {
+  try {
+    const response = await axios.post('/users-create/', userData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const loginUser = async (userData) => {
+  try {
+    const response = await axios.post('/users-login/', userData);
     return response.data;
   } catch (error) {
     throw error;
