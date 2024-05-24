@@ -1,64 +1,65 @@
 {
-    "id": 1,
-    "title": "The Great Adventure",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam assumenda sint explicabo repellat quo? Vero rerum fugit ratione illo exercitationem a ipsa laboriosam corporis voluptate eum eius illum, itaque expedita?",
-    "year": 2023,
-    "trailer_url":"https://wwwimage-us.pplusstatic.com/base/files/seo/halo_social_1200x627_5.jpg",
-    "languages": ["English", "Spanish", "French", "German", "Italian"],
-    "ratings": {
-      "rating": 3
+  "id": 1,
+  "title": "The Great Adventure",
+  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam assumenda sint explicabo repellat quo? Vero rerum fugit ratione illo exercitationem a ipsa laboriosam corporis voluptate eum eius illum, itaque expedita?",
+  "year": 2023,
+  "movie_url": "https://res.cloudinary.com/dl1epake8/video/upload/v1715732161/b6nc41k7txwvjx13suty.mp4",
+  "trailer_url": "https://res.cloudinary.com/dl1epake8/video/upload/v1715732161/b6nc41k7txwvjx13suty.mp4",
+  "trailer_image_url": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+  "languages": ["English", "Spanish", "French", "German", "Italian"],
+  "ratings": {
+    "rating": 3
+  },
+  "genre": ["Adventure", "Action", "Fantasy", "Sci-Fi", "Thriller", "Comedy"],
+  "director": [
+    {
+      "name": "John Smith",
+      "photo": "https://randomuser.me/api/portraits/women/74.jpg",
+      "origin": "USA"
     },
-    "genre": ["Adventure", "Action", "Fantasy", "Sci-Fi", "Thriller", "Comedy"],
-    "director": [
-      {
-        "name": "John Smith",
-        "photo": "https://randomuser.me/api/portraits/women/74.jpg",
-        "origin": "USA"
-      },
-      {
-        "name": "Jane Doe",
-        "photo": "https://randomuser.me/api/portraits/women/74.jpg",
-        "origin": "UK"
-      }
-    ],
-    "music": [
-      {
-        "name": "Hans Zimmer",
-        "photo": "https://randomuser.me/api/portraits/women/74.jpg",
-        "origin": "Germany"
-      },
-      {
-        "name": "John Williams",
-        "photo": "https://randomuser.me/api/portraits/women/74.jpg",
-        "origin": "USA"
-      }
-    ],
-    "cast": [
-      "https://randomuser.me/api/portraits/women/74.jpg",
-      "https://randomuser.me/api/portraits/women/74.jpg",
-      "https://randomuser.me/api/portraits/women/74.jpg"
-    ],
-    "reviews": [
-      {
-        "name": "Alice Johnson",
-        "rating": 5,
-        "text": "An absolutely stunning film with breathtaking visuals and an engaging story. An absolutely stunning film with breathtaking visuals and an engaging story."
-      },
-      {
-        "name": "Bob Brown",
-        "rating": 3.5,
-        "text": "Great movie overall, but I felt the pacing was a bit slow in the middle. An absolutely stunning film with breathtaking visuals and an engaging story."
-      },
-      {
-        "name": "Alice Johnson",
-        "rating": 1,
-        "text": "An absolutely stunning film with breathtaking visuals and an engaging story. An absolutely stunning film with breathtaking visuals and an engaging story."
-      },
-      {
-        "name": "Bob Brown",
-        "rating": 2,
-        "text": "Great movie overall, but I felt the pacing was a bit slow in the middle. An absolutely stunning film with breathtaking visuals and an engaging story."
-      }
-    ]
-  }
-  
+    {
+      "name": "Jane Doe",
+      "photo": "https://randomuser.me/api/portraits/women/74.jpg",
+      "origin": "UK"
+    }
+  ],
+  "music": [
+    {
+      "name": "Hans Zimmer",
+      "photo": "https://randomuser.me/api/portraits/women/74.jpg",
+      "origin": "Germany"
+    },
+    {
+      "name": "John Williams",
+      "photo": "https://randomuser.me/api/portraits/women/74.jpg",
+      "origin": "USA"
+    }
+  ],
+  "cast": [
+    "https://randomuser.me/api/portraits/women/74.jpg",
+    "https://randomuser.me/api/portraits/women/74.jpg",
+    "https://randomuser.me/api/portraits/women/74.jpg"
+  ],
+  "reviews": [
+    {
+      "name": "Alice Johnson",
+      "rating": 5,
+      "text": "An absolutely stunning film with breathtaking visuals and an engaging story. An absolutely stunning film with breathtaking visuals and an engaging story."
+    },
+    {
+      "name": "Bob Brown",
+      "rating": 3.5,
+      "text": "Great movie overall, but I felt the pacing was a bit slow in the middle. An absolutely stunning film with breathtaking visuals and an engaging story."
+    },
+    {
+      "name": "Alice Johnson",
+      "rating": 1,
+      "text": "An absolutely stunning film with breathtaking visuals and an engaging story. An absolutely stunning film with breathtaking visuals and an engaging story."
+    },
+    {
+      "name": "Bob Brown",
+      "rating": 2,
+      "text": "Great movie overall, but I felt the pacing was a bit slow in the middle. An absolutely stunning film with breathtaking visuals and an engaging story."
+    }
+  ]
+}
