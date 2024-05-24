@@ -37,12 +37,16 @@ const Header = () => {
         </div>
         <ul className="border-neutral-600 hidden md:flex space-x-4 bg-[#0F0F0F] border-solid border-2 rounded-lg p-2">
           <li>
-            <button className="focus:bg-neutral-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs" data-ripple-light="true" onClick={() => handleButtonClick('/')}>
+            <button className={location.pathname === '/'
+              ? 'font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs bg-neutral-800'
+              : 'font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs'} onClick={() => handleButtonClick('/')} data-ripple-light="true">
               Home
             </button>
           </li>
           <li>
-            <button className="focus:bg-neutral-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs" data-ripple-light="true" onClick={() => handleButtonClick('/movies')}>
+            <button className={location.pathname === '/movies'
+              ? 'font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs bg-neutral-800'
+              : 'font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs'} onClick={() => handleButtonClick('/movies')} data-ripple-light="true">
               Movies
             </button>
           </li>
