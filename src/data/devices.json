@@ -1,0 +1,40 @@
+[
+    {
+      "id": 1,
+      "title": "Smartphones",
+      "description": "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+      "img": "https://res.cloudinary.com/dhhyc88td/image/upload/v1716240940/smartphones_dth7kt.png"
+    },
+    {
+      "id": 2,
+      "title": "Tablet",
+      "description": "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+      "img": "https://res.cloudinary.com/dhhyc88td/image/upload/v1716240940/tablet_zpud4p.png"
+    },
+    {
+      "id": 3,
+      "title": "Smart TV",
+      "description": "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+      "img": "https://res.cloudinary.com/dhhyc88td/image/upload/v1716240940/smartTV_zleofd.png"
+    },
+    {
+      "id": 4,
+      "title": "Laptops",
+      "description": "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+      "img": "https://res.cloudinary.com/dhhyc88td/image/upload/v1716240940/laptops_k6wgbv.png"
+    },
+    {
+      "id": 5,
+      "title": "Gaming Consoles",
+      "description": "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+      "img": "https://res.cloudinary.com/dhhyc88td/image/upload/v1716240940/GamingConsoles_cpqhlc.png"
+    },
+    {
+      "id": 6,
+      "title": "VR Headsets",
+      "description": "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+      "img": "https://res.cloudinary.com/dhhyc88td/image/upload/v1716240940/VRHeadsets_tbq4uv.png"
+    }
+  ]
+
+ 

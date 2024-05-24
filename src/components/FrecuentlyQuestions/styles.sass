@@ -1,32 +1,66 @@
 @use '../../styles/variables.sass' as *
 
+
+.containerQuestions
+	gap: 0px
+	justify-content: center
+	margin-left: 50px
+	&__thumbnails
+		gap: 20px
+		display: flex
+		flex-direction: column
+		.faq-header
+			display: flex
+			align-items: center
+			.order
+				width: 62px
+				height: 67px
+				color: $white-color
+				background-color: $color-black-15
+				display: flex
+				align-items: center
+				justify-content: center
+				padding: 20px
+				border-radius: 10px
+				font-size: 20px
+				font-weight: $bold-weight
+			.faq-question
+				width: 100%
+				align-items: center
+				display: flex
+				padding: 10px 0
+				font-weight: bold
+				justify-content: space-between
+				cursor: pointer
+				position: relative
+				&::after
+					content: ''
+					position: absolute
+					left: 0
+					bottom: 0
+					width: 100%
+					height: 2px
+					background: linear-gradient(to right, #FF0000, transparent)
+				.title
+					color: $white-color
+					font-size: 22px
+				.plus-icon
+					color: white
+					font-size: 1.5em
+					cursor: pointer
+		.faq-answer
+			display: none
+			padding: 10px 0
+			&.open
+				display: block
+			.paragraph
+				color: $color-gray-60
+				font-size: 18px
+	img
+		width: 40px
+		height: 40px
+		cursor: pointer
+
+
     
-.faq-section
-    background-color: $background-color
-    color: #ffffff
-    padding: 190px
     
-    h2
-        font-size: 24px
-        margin-bottom: 10px
-    p
-        font-size: 16px
-        margin-bottom: 20px
-    .faq
-        .question
-            margin-bottom: 20px
-        h3
-            font-size: 18px
-            cursor: pointer
-        p
-            font-size: 14px
-    .ask-question
-        background-color: $color-red-45
-        border: none
-        color: #ffffff
-        padding: 10px 20px
-        font-size: 16px
-        border-radius: 5px
-        cursor: pointer
-        &:hover
-            background-color: $color-red-50
