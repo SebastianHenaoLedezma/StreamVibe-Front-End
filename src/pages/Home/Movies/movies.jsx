@@ -9,9 +9,6 @@ import MustWatch from "../../../components/PopularMovies/mustWatch"
 
 
 const Movies = () => {
-  let desc = "With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face... Avenge the fallen."
-
-
   const [randomMovie, setRandomMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const [newReleases, setNewReleases] = useState([]);
@@ -57,8 +54,8 @@ const Movies = () => {
   return (
 
     <section className="p-4 grid grid-cols-1 gap-2">
-      <MovieHeader img="src/assets/movie/captainAmerica.png" />
-      <DescriptionMovie title="Avenger:Endgame" desc={desc} />
+      <MovieHeader img={randomMovie.trailer_image_url} title={randomMovie.title} description={randomMovie.description} />
+      <DescriptionMovie title={randomMovie.title} desc={randomMovie.description} />
       <div className="flex justify-center mt-2 items-center  -translate-y-36">
         <button className="bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 rounded-lg text-xs h-10" ata-ripple-light="true">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
