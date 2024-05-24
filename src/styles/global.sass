@@ -1,9 +1,12 @@
+@use './variables.sass' as *
+
 *, *::before, *::after
   margin: 0
   padding: 0
   border: 0
   box-sizing: border-box
   vertical-align: baseline
+  font-family: $font-source
 
 *::before, *::after
   display: block
@@ -51,7 +54,7 @@ blockquote:before, blockquote:after, q:before, q:after
 
 
 form, input, textarea, select, button, label
-  font-family: inherit
+  font-family: $font-source
   font-size: inherit
   hyphens: auto
   background-color: transparent
@@ -74,5 +77,5 @@ svg
 body
   min-height: 100vh
   font-size: 100%
-  font-family: var(--tipo-principal)
+  font-family: $font-source
   color: var(--negro)

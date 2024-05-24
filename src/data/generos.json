@@ -1,0 +1,210 @@
+[
+  {
+      "id": 1,
+      "name": "Accion",
+      "movies": [
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+              "title": "Deadpool",
+              "duration": "01:34:00"
+          },
+          {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        }
+      ]
+  },
+  {
+      "id": 2,
+      "name": "Aventura",
+      "movies": [
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+              "title": "Deadpool",
+              "duration": "01:34:00"
+          },
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059842/nrwvobzjqwp5u9niszly.png",
+              "title": "Deadpool 2",
+              "duration": "01:01:31"
+          },
+          {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        }
+      ]
+  },
+  {
+      "id": 3,
+      "name": "Terror",
+      "movies": [
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059842/nrwvobzjqwp5u9niszly.png",
+              "title": "Deadpool 2",
+              "duration": "01:01:31"
+          },
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716246135/ot8qsz0rokp0tkys18wd.png",
+              "title": "Película numero 3",
+              "duration": "01:30:00"
+          },
+          {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        }
+      ]
+  },
+  {
+      "id": 4,
+      "name": "Ciencia ficción",
+      "movies": [
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+              "title": "Deadpool",
+              "duration": "01:34:00"
+          },
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059842/nrwvobzjqwp5u9niszly.png",
+              "title": "Deadpool 2",
+              "duration": "01:01:31"
+          },
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/Seria%20la%20imagen%20del%20trailer%20pero%20no%20se%20aun",
+              "title": "Tensei shitara Dainana",
+              "duration": "01:51:12"
+          },
+          {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        }
+      ]
+  },
+  {
+      "id": 6,
+      "name": "Anime",
+      "movies": [
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/Seria%20la%20imagen%20del%20trailer%20pero%20no%20se%20aun",
+              "title": "Tensei shitara Dainana",
+              "duration": "01:51:12"
+          },
+          {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        }
+      ]
+  },
+  {
+      "id": 7,
+      "name": "Magia",
+      "movies": [
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716246135/ot8qsz0rokp0tkys18wd.png",
+              "title": "Película numero 3",
+              "duration": "01:30:00"
+          },
+          {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        }
+      ]
+  },
+  {
+      "id": 8,
+      "name": "Fantasia",
+      "movies": [
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/Seria%20la%20imagen%20del%20trailer%20pero%20no%20se%20aun",
+              "title": "Tensei shitara Dainana",
+              "duration": "01:51:12"
+          },
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/No%20tiene",
+              "title": "Películas nuemro 20",
+              "duration": "18:45:00"
+          },
+          {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        }
+      ]
+  },
+  {
+      "id": 9,
+      "name": "Algomas",
+      "movies": [
+          {
+              "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716246135/ot8qsz0rokp0tkys18wd.png",
+              "title": "Película numero 3",
+              "duration": "01:30:00"
+          },
+          {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        },
+        {
+            "trailer_thumbnail": "http://res.cloudinary.com/dl1epake8/image/upload/v1716059970/rqcuibzptwfpcqm1vl9m.png",
+            "title": "Deadpool",
+            "duration": "01:34:00"
+        }
+      ]
+  }
+]
