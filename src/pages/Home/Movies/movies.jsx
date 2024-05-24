@@ -58,7 +58,7 @@ const Movies = () => {
     setLoading(true);
     try {
       const movieResult = await getMovieById(randomMovie.id);
-      navigate(`/movie/${randomMovie.id}`, { state: { movieData: movieResult } });
+      navigate(`/movie/`, { state: { movieData: movieResult.id } });
     } catch (error) {
       console.log(error);
     }

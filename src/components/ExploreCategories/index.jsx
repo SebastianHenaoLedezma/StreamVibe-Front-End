@@ -26,14 +26,17 @@ const Generos = ({ genero }) => {
   return (
     <>
       <div className="container__genres cursor-pointer" onClick={handleButtonClick}>
-        <div className="thumbnails">
-          {moviesToShow.length > 0 ? (
-            moviesToShow.map((movie, index) => (
-              <img key={index} src={movie.trailer_thumbnail} alt={`imagen genero ${index}`} />
-            ))
-          ) : (
-            <p>No hay películas disponibles.</p>
-          )}
+        <div className="thumbnails-wrapper">
+          <div className="thumbnails">
+            {moviesToShow.length > 0 ? (
+              moviesToShow.map((movie, index) => (
+                <img key={index} src={movie.trailer_thumbnail} alt={`imagen genero ${index}`} />
+              ))
+            ) : (
+              <p>No hay películas disponibles.</p>
+            )}
+          </div>
+          <div className="overlay"></div>
         </div>
         <div className="cardDescription">
           <p>{genero.name}</p>

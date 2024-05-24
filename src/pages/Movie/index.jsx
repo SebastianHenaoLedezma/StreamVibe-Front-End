@@ -14,12 +14,7 @@ import { useLocation } from 'react-router-dom';
 const Movie = () => {
     const location = useLocation();
     const movieId = location.state.movieData;
-    // const [movieInfoData, setMovieInfoData] = useState(movieData);
     const [movieData, setMovieData] = useState([]);
-
-    
-    
-    
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [open, setOpen] = useState(false);
@@ -29,14 +24,13 @@ const Movie = () => {
     const [playButtonClicked, setPlayButtonClicked] = useState(false);
 
     const [reviews, setReviews] = useState();
-    
+
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
-    
+
     useEffect(() => {
         const getData = async () => {
             try {
-                console.log(movieId)
                 const getInfoMovie = await getMovieById(movieId);
                 setMovieData(getInfoMovie);
                 setReviews(getInfoMovie.reviews || []);
@@ -49,7 +43,7 @@ const Movie = () => {
 
         getData();
     }, []);
-    
+
     useEffect(() => {
         setTimeout(() => setLoading(false), 1000);
     }, []);
@@ -106,7 +100,7 @@ const Movie = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    const ratingStart = movieData?.ratings?.rating__avg || 0; // Verificación añadida
+    const ratingStart = movieData?.ratings?.rating__avg || 0;
     const thirdExample = {
         size: 15,
         count: 5,
