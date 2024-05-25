@@ -2,9 +2,12 @@ import React from 'react'
 
 const index = () => {
 
-  const handleButtonClick = (path) => {
-    navigate(path);
-  };
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
 
   return (
     <>
@@ -12,17 +15,17 @@ const index = () => {
       <div className="px-4 flex-auto w-100 bg-[#0F0F0F]">
         <div className="flex">
           <div className="flex-auto">
-            <p className='cursor-pointer font-bold my-4' onClick={() => handleButtonClick('/')}>Home</p>
-            <p className='my-4' >Categories</p>
-            <p className='my-4'>Devices</p>
-            <p className='my-4'>FAQ</p>
+            <p className='font-bold my-4'>Home</p>
+            <button className='my-4 hover:bg-red-800 rounded-lg px-2' onClick={() => scrollToSection('categories')}>Categories</button>
+            <button className='my-4 hover:bg-red-800 rounded-lg px-2' onClick={() => scrollToSection('devices')}>Devices</button>
+            <button className='my-4 hover:bg-red-800 rounded-lg px-2' onClick={() => scrollToSection('faq')}>FAQ</button>
           </div>
           <div className="flex-auto">
-            <p className='font-bold my-4'>Movies</p>
-            <p className='my-4'>Genres</p>
-            <p className='my-4'>Popular</p>
-            <p className='my-4'>New Releases</p>
-            <p className='my-4'>Must-watch</p>
+            <button className='font-bold my-4'>Movies</button>
+            <button className='my-4 hover:bg-red-800 rounded-lg px-2' onClick={() => scrollToSection('genres')}>Genres</button>
+            <button className='my-4 hover:bg-red-800 rounded-lg px-2' onClick={() => scrollToSection('popular')}>Popular</button>
+            <button className='my-4 hover:bg-red-800 rounded-lg px-2' onClick={() => scrollToSection('releases')}>New Releases</button>
+            <button className='my-4 hover:bg-red-800 rounded-lg px-2' onClick={() => scrollToSection('must')}>Must-watch</button>
           </div>
           <div className="flex-auto">
             <p className='font-bold my-4'>Support</p>

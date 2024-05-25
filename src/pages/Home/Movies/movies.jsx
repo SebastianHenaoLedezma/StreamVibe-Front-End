@@ -84,31 +84,31 @@ const Movies = () => {
         </button>
       </div>
 
-      <section className="">
+      <section id="genres" className="">
         <h2>Our Genres</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
+        <div className="grid grid-cols-2 xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-11">
           {genres.map((genero, index) => (
             <Generos genero={genero} key={index} />
           ))}
         </div>
       </section>
-      <section className="">
+      <section id="popular" className="">
         <h2>Popular Top 10 In Genres</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
+        <div className="grid grid-cols-2 xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-11">
           {topGenres?.map((genre, index) => (
             <TopGenres key={index} genres={genre} />
           ))}
         </div>
       </section>
-      <section className="">
+      <section id="releases" className="">
         <h2>New Releases </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
+        <div className="grid grid-cols-2 xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-11">
           {newReleases.map((release, index) => (
             <NewReleases key={index} release={release} />
           ))}
         </div>
       </section>
-      <section className="">
+      <section id="must" className="">
         <h2>Must - Watch Movies </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
           {mustWatch.map((movie, index) => (

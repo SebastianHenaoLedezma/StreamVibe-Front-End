@@ -25,7 +25,7 @@ const Generos = ({ genero }) => {
 
   return (
     <>
-      <div className="container__genres cursor-pointer" onClick={handleButtonClick}>
+      <div className="border-solid border-2 bg-[#1A1A1A] border-neutral-700 rounded-lg w-full container__genres cursor-pointer" onClick={handleButtonClick}>
         <div className="thumbnails-wrapper">
           <div className="thumbnails">
             {moviesToShow.length > 0 ? (
