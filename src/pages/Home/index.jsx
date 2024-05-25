@@ -8,7 +8,7 @@ import StreamingDevices from '../../components/StreamingDevices';
 import './styles.sass'
 import { FaPlay } from 'react-icons/fa';
 import { getGenres, getFaqs } from '../../services/apiService';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 
 const Home = () => {
@@ -16,6 +16,7 @@ const Home = () => {
   const [faqs, setFaqs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const section1Ref = useRef(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -67,7 +68,7 @@ const Home = () => {
         </div>
       </section>
       
-      <section className="containerGenres">
+      <section id="categories"  className="containerGenres">
         <div className="containerGenres__titleAndSlider">
           <h1 className="genresTitle">Explore our wide variety of categories</h1>
           <p className="genresDescription">
@@ -82,7 +83,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="containerDevices">
+      <section  id="devices" className="containerDevices">
         <div className="containerDevices__title">
           <h1 className="devicesTitle">We Provide you streaming experience across various devices.</h1>
           <p className="devicesDescription">
@@ -96,7 +97,7 @@ const Home = () => {
         </div>
       </section>
       
-      <section className="containerQuestions">
+      <section  id="faq" className="containerQuestions">
         <div className="containerQuestions__title">
           <div className="containerQuestion__title__text">
             <h1 className="questionsTitle">Frequently Asked Questions</h1>
