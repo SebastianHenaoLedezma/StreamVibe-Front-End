@@ -1,4 +1,5 @@
 import "./styles.sass";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const StreamingDevices = ({ device }) => {
   return (
