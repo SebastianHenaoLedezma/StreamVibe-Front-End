@@ -137,3 +137,12 @@ export const createRatingOnReview = async (ratingData) => {
     throw error;
   }
 };
+
+export const createRatingOnMovie = async (ratingData) => {
+  try {
+    const response = await axios.patch(`/movies/${ratingData.movieId}/${ratingData.user_id}/`, ratingData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

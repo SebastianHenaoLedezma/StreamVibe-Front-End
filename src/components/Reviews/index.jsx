@@ -46,16 +46,13 @@ const Reviews = ({ review, onDelete, onUpdate }) => {
         value: ratingStart,
         color: "white",
         activeColor: "red",
-        isHalf: true,
         onChange: (newValue) => {
-            console.log("id", globalUser.id);
             createRatingOnReview({ reviewId: review.id, rating: newValue, user_id: globalUser.id });
         },
     };
 
 
     const usercanEdit = globalUser?.id === review?.user?.id;
-    console.log(review)
 
     return (
         <div className="review">
