@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from '../../assets/icons/Logo.png';
+import { UserContext } from '../../context/UserContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { globalUser, setGlobalUser } = useContext(UserContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -12,6 +15,20 @@ const Header = () => {
 
   const handleButtonClick = (path) => {
     navigate(path);
+  };
+
+  const handleMoviesButtonClick = () => {
+    if (globalUser) {
+      navigate('/movies');
+    } else {
+      navigate('/login');
+    }
+  };
+
+  const handleLogout = () => {
+    setGlobalUser(null);
+    localStorage.removeItem('authUserData');
+    navigate('/');
   };
 
   return (
@@ -46,23 +63,26 @@ const Header = () => {
           <li>
             <button className={location.pathname === '/movies'
               ? 'font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs bg-neutral-800'
-              : 'font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs'} onClick={() => handleButtonClick('/movies')} data-ripple-light="true">
+              : 'font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs'} onClick={handleMoviesButtonClick} data-ripple-light="true">
               Movies
             </button>
           </li>
-          {/* <li>
-            <button className="bg-neutral-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 rounded-lg text-xs" data-ripple-light="true" onClick={() => handleButtonClick('/support')}>
-              Support
-            </button>
-          </li> */}
         </ul>
         <div className="lg md:flex hidden justify-end items-center gap-2">
-          <button className="border-solid border-2 border-neutral-700 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/login')}>
-            Login
-          </button>
-          <button className="bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/register')}>
-            Register
-          </button>
+          {globalUser ? (
+            <button className="bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <>
+              <button className="border-solid border-2 border-neutral-700 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/login')}>
+                Login
+              </button>
+              <button className="bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/register')}>
+                Register
+              </button>
+            </>
+          )}
         </div>
       </div>
       {isMenuOpen ? (
@@ -75,11 +95,6 @@ const Header = () => {
           <li>
             <button className="bg-neutral-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 m-1 rounded-lg text-xs" data-ripple-light="true" onClick={() => handleButtonClick('/movies')}>
               Movies
-            </button>
-          </li>
-          <li>
-            <button className="bg-neutral-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 m-1 rounded-lg text-xs" data-ripple-light="true" onClick={() => handleButtonClick('/support')}>
-              Support
             </button>
           </li>
         </ul>

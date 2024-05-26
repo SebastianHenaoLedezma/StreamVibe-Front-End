@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './styles.sass';
 import IconPlay from '../../assets/movie/play.png';
 import IconAdd from '../../assets/movie/add.png';
@@ -9,9 +9,11 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ReactStars from "react-rating-stars-component";
 import { createReview, getMovieById } from '../../services/apiService';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 
 const Movie = () => {
+    const {globalUser} = useContext(UserContext);
     const location = useLocation();
     const movieId = location.state.movieData;
     const [movieData, setMovieData] = useState([]);
@@ -23,9 +25,17 @@ const Movie = () => {
     const [trailerPlayed, setTrailerPlayed] = useState(false);
     const [playButtonClicked, setPlayButtonClicked] = useState(false);
 
+    const navigate = useNavigate();
+
     const [reviews, setReviews] = useState();
 
-    const onOpenModal = () => setOpen(true);
+    const onOpenModal = () => {
+        if (globalUser) {
+          setOpen(true);
+        } else {
+            navigate("/login", { state: { from: location } });
+        }
+      };
     const onCloseModal = () => setOpen(false);
 
     useEffect(() => {
@@ -52,7 +62,7 @@ const Movie = () => {
         e.preventDefault();
 
         const reviewData = {
-            name: name,
+            user_id: globalUser.id,
             review: review,
             ratings: null,
             movie_id: movieData.id,
@@ -108,8 +118,11 @@ const Movie = () => {
         color: "white",
         activeColor: "red",
         isHalf: true,
+        // onChange: (newValue) => {
+        //     console.log(globalUser.id);
+        //     createRatingOnReview({ movieId: movieData.id, rating: newValue, user_id: globalUser.id });
+        // },
     };
-    console.log(movieData)
 
     return (
         <section className="movie">
@@ -143,7 +156,7 @@ const Movie = () => {
                     <div className="movie__header">
                         <h3 className="movie__subtitle">Cast</h3>
                         <div className='movie__header-container'>
-                            {movieData?.actors.map((actor, index) => (
+                            {movieData?.actors?.map((actor, index) => (
                                 <img src={actor.photo_url} alt="" key={index} className='movie__header-container-image' />
                             ))}
                         </div>
@@ -167,15 +180,7 @@ const Movie = () => {
                             <h2 className="modal-title">Submit Your Review</h2>
                             <form onSubmit={handleSubmit} className="modal-form">
                                 <div className="form-group">
-                                    <label htmlFor="name" className="form-label">Name:</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        required
-                                        className="form-input"
-                                    />
+                                    <label htmlFor="name" className="form-label">Name: {globalUser?.name}</label>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="review" className="form-label">Review:</label>
@@ -218,7 +223,7 @@ const Movie = () => {
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Available Languages</h3>
                         <div className='movie__detail-container'>
-                            {movieData?.languages.map((info, index) => (
+                            {movieData?.languages?.map((info, index) => (
                                 <InfoLanguageGenre key={index} info={info} />
                             ))}
                         </div>
@@ -232,7 +237,7 @@ const Movie = () => {
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Genre</h3>
                         <div className='movie__detail-container'>
-                            {movieData?.genres.map((info, index) => (
+                            {movieData?.genres?.map((info, index) => (
                                 <InfoLanguageGenre key={index} info={info} />
                             ))}
                         </div>
@@ -240,7 +245,7 @@ const Movie = () => {
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Director</h3>
                         <div className='movie__detail-director-music'>
-                            {movieData?.directors.map((info, index) => (
+                            {movieData?.directors?.map((info, index) => (
                                 <CardDirecMusic key={index} info={info} />
                             ))}
                         </div>
@@ -248,7 +253,7 @@ const Movie = () => {
                     <div className="movie__detail">
                         <h3 className="movie__subtitle">Music</h3>
                         <div className='movie__detail-director-music'>
-                            {movieData?.music_creators.map((info, index) => (
+                            {movieData?.music_creators?.map((info, index) => (
                                 <CardDirecMusic key={index} info={info} />
                             ))}
                         </div>

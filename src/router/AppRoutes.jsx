@@ -10,14 +10,14 @@ import MustWatch from '../components/PopularMovies/mustWatch'
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path='home' element={<Home />} />
-      <Route path='/login' element={<AuthSwitcher />} />
       <Route path='/' element={<Home />} />
+      <Route path='/login' element={<AuthSwitcher />} />
+      {/* Libre */}
+      
       <Route path='movies' element={<Movies />} />
       <Route path='/movie' element={<Movie />} />
       <Route path='/movie/:id' element={<Movie />} />
       <Route path='/must-watch' element={<MustWatch />} />
-
       <Route path='/moviesbygenre/:id' element={<MovieByGenre />} />
     </Routes>
   )

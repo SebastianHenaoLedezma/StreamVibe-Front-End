@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import TopGenres from "../../../components/PopularMovies/genres"
 import DescriptionMovie from "./descriptionMovie"
 import MovieHeader from "./movieHeader"
@@ -9,9 +9,12 @@ import MustWatch from "../../../components/PopularMovies/mustWatch"
 import Generos from "../../../components/ExploreCategories"
 import IconPlay from '../../../assets/movie/play.png';
 import { useNavigate } from "react-router-dom"
+import { UserContext } from "../../../context/UserContext"
 
 
 const Movies = () => {
+  const {globalUser} = useContext(UserContext);
+
   const [randomMovie, setRandomMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const [topGenres, setTopGenres] = useState([]);

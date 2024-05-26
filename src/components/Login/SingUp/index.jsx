@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoSvg from "../../../assets/Logo_Streamvibe.svg";
 import imgFondo from "../../../assets/SubContainer.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../styles.sass";
-import { registerUser } from "../../../services/apiService";
+import { loginUser, registerUser } from "../../../services/apiService";
+import { UserContext } from "../../../context/UserContext";
 
 const SingUp = ({ toggleComponent }) => {
+  const { setGlobalUser } = useContext(UserContext);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -33,7 +35,12 @@ const SingUp = ({ toggleComponent }) => {
 
     try {
       const newUser = await registerUser(userData);
-      console.log("Usuario registrado correctamente:", newUser);
+      console.log("Usuario creado correctamente:", newUser);
+
+      const response = await loginUser(userData);
+      console.log("Usuario registrado correctamente:", response);
+      const authUserData = response.user;
+      setGlobalUser(authUserData);
       navigate('/movies');
     } catch (error) {
       console.error("Error al registrar usuario:", error);
