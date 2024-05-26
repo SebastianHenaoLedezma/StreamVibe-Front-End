@@ -5,6 +5,7 @@ import Generos from "../../components/ExploreCategories";
 import ExploreCategories from '../../components/ExploreCategories';
 import FrecuentlyQuestions from '../../components/FrecuentlyQuestions';
 import StreamingDevices from '../../components/StreamingDevices';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.sass'
 import { FaPlay } from 'react-icons/fa';
 import { getGenres, getFaqs } from '../../services/apiService';
