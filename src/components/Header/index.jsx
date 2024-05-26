@@ -15,10 +15,10 @@ const Header = () => {
   };
 
   return (
-    <nav className="p-4">
+    <nav className="px-5 py-4">
       <div className="flex items-center justify-between">
-        <div className="">
-          <img src={Logo} alt="Logo" />
+        <div className="cursor-pointer">
+          <img src={Logo} alt="Logo" onClick={() => handleButtonClick('/')}/>
         </div>
         <div className="md:hidden">
           <button className="text-white" onClick={toggleMenu}>
@@ -77,11 +77,11 @@ const Header = () => {
               Movies
             </button>
           </li>
-          <li>
+          {/* <li>
             <button className="bg-neutral-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 m-1 rounded-lg text-xs" data-ripple-light="true" onClick={() => handleButtonClick('/support')}>
               Support
             </button>
-          </li>
+          </li> */}
         </ul>
       ) : null}
     </nav>

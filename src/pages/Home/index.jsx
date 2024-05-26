@@ -41,7 +41,7 @@ const Home = () => {
 
 
   return (
-    <main className="Home">
+    <main className="Home px-5">
       <section className="containerHome">
         <div className="containerHome_banner">
           <img
@@ -76,7 +76,7 @@ const Home = () => {
             make you think, or a documentary to learn something new
           </p>
         </div>
-        <div className="exploreCategories">
+        <div className="grid grid-cols-2 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-11">
           {genres.map((genero, index) => (
             <Generos genero={genero} key={index}/>
           ))}
