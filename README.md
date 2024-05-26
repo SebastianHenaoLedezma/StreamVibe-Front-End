@@ -7,10 +7,11 @@ StreamVibe es un aplicativo web permite ver películas de manera online.
 
 ## Índice
 - [Demo](#demo)
-- [Características](#características)
+
 - [Pasos Instalación](#pasos-instalación)
 - [Ejecutar localmente](#ejecutar-localmente)
 - [Tecnologías](#tecnologías)
+- [Librerías](#librerías)
 - [Despliegue](#despliegue)
 - [Recursos adicionales](#recursos-adicionales)
 - [Autores](#autores)
@@ -19,13 +20,6 @@ StreamVibe es un aplicativo web permite ver películas de manera online.
 ![App Screenshot]()
 ![App Screenshot]()
 ![App Screenshot]()
-
-## Características
-- Vídeos instructivos
-- Gamificación
-- Racha motivacional
-- Metas personalizadas
-
 
 
 ## Ejecutar localmente
