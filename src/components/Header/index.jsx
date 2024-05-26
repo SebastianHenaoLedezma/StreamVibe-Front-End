@@ -32,10 +32,10 @@ const Header = () => {
   };
 
   return (
-    <nav className="p-4">
+    <nav className="px-5 py-4">
       <div className="flex items-center justify-between">
-        <div className="">
-          <img src={Logo} alt="Logo" />
+        <div className="cursor-pointer">
+          <img src={Logo} alt="Logo" onClick={() => handleButtonClick('/')}/>
         </div>
         <div className="md:hidden">
           <button className="text-white" onClick={toggleMenu}>
@@ -86,7 +86,7 @@ const Header = () => {
         </div>
       </div>
       {isMenuOpen ? (
-        <ul className="flex-col text-center md:hidden">
+        <ul className="flex items-center flex-col text-center md:hidden">
           <li>
             <button className="bg-neutral-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 py-3 m-1 rounded-lg text-xs" data-ripple-light="true" onClick={() => handleButtonClick('/')}>
               Home
@@ -97,7 +97,22 @@ const Header = () => {
               Movies
             </button>
           </li>
+          {globalUser ? (
+            <button className="my-1 bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <>
+              <button className="my-1 border-solid border-2 border-neutral-700 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/login')}>
+                Login
+              </button>
+              <button className="my-1 bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/register')}>
+                Register
+              </button>
+            </>
+          )}
         </ul>
+        
       ) : null}
     </nav>
   );

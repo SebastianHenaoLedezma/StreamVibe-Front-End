@@ -55,7 +55,7 @@ const Home = () => {
 
 
   return (
-    <main className="Home">
+    <main className="Home px-5">
       <section className="containerHome">
         <div className="containerHome_banner">
           <img
@@ -90,7 +90,7 @@ const Home = () => {
             make you think, or a documentary to learn something new
           </p>
         </div>
-        <div className="exploreCategories">
+        <div className="grid grid-cols-2 mt-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-11">
           {genres.map((genero, index) => (
             <Generos genero={genero} key={index} />
           ))}
@@ -104,7 +104,7 @@ const Home = () => {
             With StreamVibe, you can enjoy your favorite movies and TV shows anytime, anywhere. Our platform is designed to be compatible with a wide range of devices, ensuring that you never miss a moment of entertainment.
           </p>
         </div>
-        <div className="exploreDevices">
+        <div className="grid grid-cols-2 xl:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-11">
           {jsonDevices.map((device, index) => (
             <StreamingDevices device={device} key={index} />
           ))}
@@ -119,11 +119,9 @@ const Home = () => {
               Got questions? We've got answers! Check out our FAQ section to find answers to the most common questions about StreamVibe.
             </p>
           </div>
-          <div>
-            <button className="questionButton">Ask a Question</button>
-          </div>
+
         </div>
-        <div className="containerQuestions__exploreQuestions">
+        <div className="containerQuestions__exploreQuestions grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
           {faqs.map((pregunta, index) => (
             <FrecuentlyQuestions pregunta={pregunta} key={index} numbers={index + 1} />
           ))}
