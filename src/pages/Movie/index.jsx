@@ -8,7 +8,7 @@ import CardDirecMusic from '../../components/DirectorMusic';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ReactStars from "react-rating-stars-component";
-import { createReview, getMovieById } from '../../services/apiService';
+import { createRatingOnMovie, createReview, getMovieById } from '../../services/apiService';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 
@@ -110,18 +110,16 @@ const Movie = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    const ratingStart = movieData?.ratings?.rating__avg || 0;
+    const ratingStart = movieData?.ratings || 0;
     const thirdExample = {
         size: 15,
         count: 5,
         value: ratingStart,
         color: "white",
         activeColor: "red",
-        isHalf: true,
-        // onChange: (newValue) => {
-        //     console.log(globalUser.id);
-        //     createRatingOnReview({ movieId: movieData.id, rating: newValue, user_id: globalUser.id });
-        // },
+        onChange: (newValue) => {
+            createRatingOnMovie({ movieId: movieData.id, rating: newValue, user_id: globalUser.id });
+        },
     };
 
     return (
@@ -232,6 +230,7 @@ const Movie = () => {
                         <h3 className="movie__subtitle">Ratings</h3>
                         <div className="review-card__rating">
                             <ReactStars {...thirdExample} />
+                            <p className='review-card__rating-text'>{movieData?.ratings}</p>
                         </div>
                     </div>
                     <div className="movie__detail">
