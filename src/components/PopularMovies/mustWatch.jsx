@@ -43,6 +43,7 @@ const MustWatch = ({movie}) => {
         </div>
         <div className='flex justify-center items-center'>
           <ReactStars {...thirdExample} />
+          <span className='ms-1 text-sm '> {movie.total_rating}</span>
         </div>
       </div>
     </div>

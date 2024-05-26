@@ -128,3 +128,21 @@ export const loginUser = async (userData) => {
     throw error;
   }
 };
+
+export const createRatingOnReview = async (ratingData) => {
+  try {
+    const response = await axios.patch(`/reviews-update/${ratingData.reviewId}/${ratingData.user_id}/`, ratingData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const createRatingOnMovie = async (ratingData) => {
+  try {
+    const response = await axios.patch(`/movies/${ratingData.movieId}/${ratingData.user_id}/`, ratingData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

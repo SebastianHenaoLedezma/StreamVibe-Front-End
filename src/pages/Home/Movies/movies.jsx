@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import TopGenres from "../../../components/PopularMovies/genres"
 import DescriptionMovie from "./descriptionMovie"
 import MovieHeader from "./movieHeader"
@@ -9,9 +9,12 @@ import MustWatch from "../../../components/PopularMovies/mustWatch"
 import Generos from "../../../components/ExploreCategories"
 import IconPlay from '../../../assets/movie/play.png';
 import { useNavigate } from "react-router-dom"
+import { UserContext } from "../../../context/UserContext"
 
 
 const Movies = () => {
+  const {globalUser} = useContext(UserContext);
+
   const [randomMovie, setRandomMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const [topGenres, setTopGenres] = useState([]);
@@ -39,6 +42,7 @@ const Movies = () => {
         setNewReleases(newReleasesResult);
 
         const mustWatchResult = await getMoviesMustWatch();
+        console.log(mustWatchResult)
         setMustWatch(mustWatchResult);
 
       } catch (error) {
@@ -112,7 +116,7 @@ const Movies = () => {
           <h2 className="font-bold my-4">Must - Watch Movies </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
             {mustWatch.map((movie, index) => (
-              <MustWatch key={index} movie={movie} />
+              <MustWatch key={index} movie={movie}/>
             ))}
           </div>
         </section>

@@ -2,31 +2,45 @@
 
 
 .devicesCard
-    width: 512px
-    height: 283px
+
+
     border-radius: 12px
     background: rgb(15,15,15)
     background: linear-gradient(13deg, rgba(15,15,15,1) 65%, rgba(229, 0, 0, 0.17) 98%)
-    margin: 20px
+
     
     &__description
-        display: flex
-        align-items: center
+        display: grid
+        grid-template-columns: 1fr 1fr // Dos columnas de igual ancho
+        gap: 20px
+        align-content: center
         margin-left: 30px
         margin-top: 40px
         gap: 15px
+        
         img
             width: 72px
             height: 72px
+            margin-left: 20px
+            margin-top: 15px
         .title
             color: $white-color
             font-size: 24px
+            padding-top: 32px
+            margin-left: -135px
+            
+            
             
     .paragraph
         color: $color-gray-60
         font-size: 18px
-        
         margin: 30px
+
+
+    // Media query for tablets
+
+
+
 
 /* .streaming-experience
     background-color: #121212

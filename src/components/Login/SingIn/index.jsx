@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LogoSvg from "../../../assets/Logo_Streamvibe.svg";
 import imgFondo from "../../../assets/SubContainer.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { loginUser } from "../../../services/apiService";
-
+import { UserContext } from "../../../context/UserContext.jsx";
 import "../styles.sass";
 
 const SingIn = ({ toggleComponent }) => {
+    const { setGlobalUser } = useContext(UserContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
+
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,7 +29,11 @@ const SingIn = ({ toggleComponent }) => {
         try {
             const response = await loginUser(userData);
             console.log("Usuario registrado correctamente:", response);
-            navigate('/movies');
+            const authUserData = response.user;
+            setGlobalUser(authUserData);
+            localStorage.setItem('authUserData', JSON.stringify(authUserData));
+            const from = location.state?.from?.pathname || "/movies";
+            navigate(from, {replace: true});
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
             setError("Invalid email or password");
@@ -44,7 +51,7 @@ const SingIn = ({ toggleComponent }) => {
                     <img className="login__logo" src={LogoSvg} alt="Streamvibe Logo" />
                     <p>
                         Don’t have an account?{" "}
-                        <span className="login__signup" onClick={toggleComponent}>Sing Up!</span>
+                        <span className="login__signup" onClick={toggleComponent}>Sign Up!</span>
                     </p>
                 </div>
                 <div className="login__content">
@@ -105,6 +112,7 @@ const SingIn = ({ toggleComponent }) => {
                             Log in
                         </button>
                     </div>
+                    {error && <p className="login__error">{error}</p>}
                 </form>
             </section>
             <section className="login__img">
