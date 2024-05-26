@@ -10,14 +10,12 @@ const Reviews = ({ review, onDelete, onUpdate }) => {
     const { globalUser } = useContext(UserContext);
     const [isEditing, setIsEditing] = useState(false);
     const [newReview, setNewReview] = useState(review.review);
-    const [rating, setRating] = useState(review.rating || 0);
-    const [hoverRating, setHoverRating] = useState(0);
-    const [averageRating, setAverageRating] = useState(review.rating || 0);
+    const [rating, setRating] = useState(review.average_rating || 0);
+    const [averageRating, setAverageRating] = useState(review.average_rating || 0);
 
-    useEffect(() => {
-        const newRating = (review.rating + rating) / 2;
-        setAverageRating(newRating);
-    }, [rating, review.rating]);
+    const calculateAverageRating = (newRating) => {
+        return Math.round((rating + newRating) / 2);
+    };
 
     const handleEdit = async () => {
         const updatedReview = { ...review, review: newReview, rating: averageRating };
@@ -39,18 +37,27 @@ const Reviews = ({ review, onDelete, onUpdate }) => {
         }
     };
 
-    const ratingStart = review.average_rating || 0;
     const thirdExample = {
         size: 15,
         count: 5,
-        value: ratingStart,
+        value: averageRating,
         color: "white",
         activeColor: "red",
-        onChange: (newValue) => {
-            createRatingOnReview({ reviewId: review.id, rating: newValue, user_id: globalUser.id });
+        onChange: async (newValue) => {
+            if (typeof newValue === 'number') {
+                const newAverage = calculateAverageRating(newValue);
+                try {
+                    await createRatingOnReview({ reviewId: review.id, rating: newValue, user_id: globalUser.id });
+                    setRating(newValue);
+                    setAverageRating(newAverage);
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            } else {
+                console.error('Invalid rating value:', newValue);
+            }
         },
     };
-
 
     const usercanEdit = globalUser?.id === review?.user?.id;
 
@@ -62,8 +69,8 @@ const Reviews = ({ review, onDelete, onUpdate }) => {
                         <h4 className="review-card__author">{review?.user_name}</h4>
                     </div>
                     <div className="review-card__rating">
-                        <ReactStars {...thirdExample} classNames='review-card__rating-value' />
-                        <p className='review-card__rating-text'>{ratingStart}</p>
+                        <ReactStars {...thirdExample} className='review-card__rating-value' />
+                        <p className='review-card__rating-text'>{averageRating}</p>
                     </div>
                 </div>
                 {isEditing ? (

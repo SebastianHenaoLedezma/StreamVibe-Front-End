@@ -13,7 +13,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 
 const Movie = () => {
-    const {globalUser} = useContext(UserContext);
+    const { globalUser } = useContext(UserContext);
     const location = useLocation();
     const movieId = location.state.movieData;
     const [movieData, setMovieData] = useState([]);
@@ -27,15 +27,18 @@ const Movie = () => {
 
     const navigate = useNavigate();
 
-    const [reviews, setReviews] = useState();
+    const [reviews, setReviews] = useState([]);
+    const [userRating, setUserRating] = useState(0);
+    const [averageRating, setAverageRating] = useState(0);
 
     const onOpenModal = () => {
         if (globalUser) {
-          setOpen(true);
+            setOpen(true);
         } else {
             navigate("/login", { state: { from: location } });
         }
-      };
+    };
+
     const onCloseModal = () => setOpen(false);
 
     useEffect(() => {
@@ -44,6 +47,7 @@ const Movie = () => {
                 const getInfoMovie = await getMovieById(movieId);
                 setMovieData(getInfoMovie);
                 setReviews(getInfoMovie.reviews || []);
+                setAverageRating(Math.round(getInfoMovie.ratings || 0));
             } catch (error) {
                 setError(error);
             } finally {
@@ -52,7 +56,7 @@ const Movie = () => {
         };
 
         getData();
-    }, []);
+    }, [movieId]);
 
     useEffect(() => {
         setTimeout(() => setLoading(false), 1000);
@@ -64,7 +68,6 @@ const Movie = () => {
         const reviewData = {
             user_id: globalUser.id,
             review: review,
-            ratings: null,
             movie_id: movieData.id,
         };
 
@@ -110,15 +113,30 @@ const Movie = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    const ratingStart = movieData?.ratings || 0;
+    const calculateAverageRating = (newRating) => {
+        const currentRating = movieData.ratings || 0;
+        return Math.round((currentRating + newRating) / 2);
+    };
+
     const thirdExample = {
         size: 15,
         count: 5,
-        value: ratingStart,
+        value: averageRating,
         color: "white",
         activeColor: "red",
-        onChange: (newValue) => {
-            createRatingOnMovie({ movieId: movieData.id, rating: newValue, user_id: globalUser.id });
+        onChange: async (newValue) => {
+            if (typeof newValue === 'number') {
+                const newAverage = calculateAverageRating(newValue);
+                try {
+                    await createRatingOnMovie({ movieId: movieData.id, rating: newValue, user_id: globalUser.id });
+                    setUserRating(newValue);
+                    setAverageRating(newAverage);
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            } else {
+                console.error('Invalid rating value:', newValue);
+            }
         },
     };
 
@@ -172,7 +190,6 @@ const Movie = () => {
                             onClose={onCloseModal}
                             center
                             classNames={{
-                                // overlay: 'bg-gradient-to-r from-red-300',
                                 modal: 'modal-review bg-neutral-800',
                             }}>
                             <h2 className="modal-title">Submit Your Review</h2>
@@ -209,7 +226,6 @@ const Movie = () => {
                             ) : (
                                 <p>No reviews available.</p>
                             )}
-
                         </div>
                     </div>
                 </section>
@@ -230,7 +246,7 @@ const Movie = () => {
                         <h3 className="movie__subtitle">Ratings</h3>
                         <div className="review-card__rating">
                             <ReactStars {...thirdExample} />
-                            <p className='review-card__rating-text'>{movieData?.ratings}</p>
+                            <p className='review-card__rating-text'>{averageRating}</p>
                         </div>
                     </div>
                     <div className="movie__detail">
