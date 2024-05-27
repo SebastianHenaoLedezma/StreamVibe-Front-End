@@ -59,7 +59,7 @@ Inicie el servidor en modo desarrollo
 
 ![Static Badge](https://img.shields.io/badge/AntD-%23334155?style=for-the-badge&logo=ant%20design&logoColor=white&color=%23177DFE)
 
-![Static Badge](https://res.cloudinary.com/dhhyc88td/image/upload/v1716786259/brand_django_icon_158932_jx0rjy.png)
+![Static Badge](https://res.cloudinary.com/dhhyc88td/image/upload/v1716786534/django_plain_logo_icon_146558_rfawig.png)
 
 ![Static Badge](https://res.cloudinary.com/dhhyc88td/image/upload/v1716786397/python_18894_y2shfo.png)
 
