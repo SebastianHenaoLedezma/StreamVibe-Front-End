@@ -1,6 +1,6 @@
 # ***_StreamVibe_***
 <p align="center">
-<img align="center" width="400px" src="[https://res.cloudinary.com/dkd5jyxby/image/upload/v1703039947/logo-daily-care_iingyz.jpg](https://res.cloudinary.com/dhhyc88td/image/upload/v1716765884/Sin_t%C3%ADtulo_Post_en_Instagram_bbkjqf.png)">
+<img align="center" width="400px" src="[https://res.cloudinary.com/dhhyc88td/image/upload/v1716765884/Sin_t%C3%ADtulo_Post_en_Instagram_bbkjqf.png]">
 </p>
 
 StreamVibe es un aplicativo web permite ver películas de manera online.
