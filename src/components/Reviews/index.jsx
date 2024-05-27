@@ -83,16 +83,10 @@ const Reviews = ({ review, onDelete, onUpdate }) => {
                     <p className="review-card__text">{review.review}</p>
                 )}
                 <div className="flex justify-end gap-4 mt-4">
-                    {isEditing ? (
-                        <button onClick={handleEdit} className={!usercanEdit}>
-                            Save
-                        </button>
-                    ) : (
-                        <button onClick={() => setIsEditing(true)} disabled={!usercanEdit}>
-                            <img src={IconEdit} alt="Edit" className="movie__button-icon" />
-                        </button>
-                    )}
-                    <button onClick={handleDelete} disabled={!usercanEdit}>
+                    <button onClick={() => setIsEditing(true)} style={{ visibility: usercanEdit ? 'visible' : 'hidden' }}>
+                        <img src={IconEdit} alt="Edit" className="movie__button-icon" />
+                    </button>
+                    <button onClick={handleDelete} style={{ visibility: usercanEdit ? 'visible' : 'hidden' }}>
                         <img src={IconClose} alt="Delete" className="movie__button-icon" />
                     </button>
                 </div>

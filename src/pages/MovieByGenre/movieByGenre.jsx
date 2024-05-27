@@ -12,7 +12,7 @@ const MovieByGenre = () => {
 
   return (
     <div className='bg-gray-950 border-solid border-2 bg-neutral-800 border-neutral-600 rounded-lg p-4 my-6 mx-6'>
-      <button className="bg-red-800 font-bold px-6 rounded-lg text-xs h-10 -translate-y-9" ata-ripple-light="true">
+      <button className="bg-red-800 font-bold px-6 rounded-lg text-xs h-10 -translate-y-9 " style={{ cursor: 'default' }} ata-ripple-light="true">
         Movies
       </button>
       <p className="mb-8 font-bold">{genreData.name}</p>

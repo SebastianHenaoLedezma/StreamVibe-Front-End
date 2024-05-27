@@ -75,11 +75,8 @@ const Header = () => {
             </button>
           ) : (
             <>
-              <button className="border-solid border-2 border-neutral-700 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/login')}>
-                Login
-              </button>
-              <button className="bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/register')}>
-                Register
+              <button className="bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/login')}>
+                Sign In / Register
               </button>
             </>
           )}
