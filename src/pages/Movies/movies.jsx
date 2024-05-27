@@ -1,15 +1,15 @@
 
 import { useContext, useEffect, useState } from "react"
-import TopGenres from "../../../components/PopularMovies/genres"
+import TopGenres from "../../components/PopularMovies/genres"
 import DescriptionMovie from "./descriptionMovie"
 import MovieHeader from "./movieHeader"
-import { getMovieRandom, getGenres, getTopGenres, getMoviesNewReleases, getMoviesMustWatch, getMovieById } from "../../../services/apiService"
-import NewReleases from "../../../components/PopularMovies/newReleases"
-import MustWatch from "../../../components/PopularMovies/mustWatch"
-import Generos from "../../../components/ExploreCategories"
-import IconPlay from '../../../assets/movie/play.png';
+import { getMovieRandom, getGenres, getTopGenres, getMoviesNewReleases, getMoviesMustWatch, getMovieById } from "../../services/apiService"
+import NewReleases from "../../components/PopularMovies/newReleases"
+import MustWatch from "../../components/PopularMovies/mustWatch"
+import Generos from "../../components/ExploreCategories"
+import IconPlay from '../../assets/movie/play.png';
 import { useNavigate } from "react-router-dom"
-import { UserContext } from "../../../context/UserContext"
+import { UserContext } from "../../context/UserContext"
 
 
 const Movies = () => {
