@@ -14,7 +14,7 @@ const MustWatch = ({movie}) => {
     try {
       const movieResult = await getMovieById(movie.id);
       setMovieData(movieResult);
-      navigate(`/movie/${movie.id}`, { state: { movieData: movieResult } });
+      navigate(`/movie/${movie.id}`, { state: { movieData: movieResult.id } });
     } catch (error) {
       console.log(error);
     }

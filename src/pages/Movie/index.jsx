@@ -23,7 +23,6 @@ const Movie = () => {
     const [name, setName] = useState('');
     const [review, setReview] = useState('');
     const [trailerPlayed, setTrailerPlayed] = useState(false);
-    const [playButtonClicked, setPlayButtonClicked] = useState(false);
 
     const navigate = useNavigate();
 
@@ -91,10 +90,6 @@ const Movie = () => {
         return () => clearTimeout(trailerTimer);
     }, []);
 
-    const handlePlayMovie = () => {
-        setPlayButtonClicked(true);
-    };
-
     const handleDeleteReview = (reviewId) => {
         const updatedReviews = reviews.filter(review => review.id !== reviewId);
         setReviews(updatedReviews);
@@ -143,22 +138,9 @@ const Movie = () => {
     return (
         <section className="movie">
             <section className="movie__main">
-                {trailerPlayed ? (
-                    <video src={movieData?.movie_url} controls autoPlay className="h-[60vh] w-[97vw] movie__video"></video>
-                ) : (
-                    <img src={movieData.trailer_image_url} alt="" className="h-[60vh] w-[97vw] movie__image" />
-                )}
+                <video src={movieData?.movie_url} controls autoPlay className="movie__video" poster={movieData.trailer_image_url}></video>
                 <div className="movie__details">
-                    <h2 className="movie__title">{movieData?.title}</h2>
-                    <p className="movie__description">{movieData?.description}</p>
-                    <button
-                        className="movie__button"
-                        onClick={handlePlayMovie}
-                        disabled={playButtonClicked}
-                    >
-                        <img src={IconPlay} alt="" className="movie__button-icon" />
-                        Play now
-                    </button>
+                    <h1 className="movie__title">{movieData?.title}</h1>
                 </div>
             </section>
             <section className="movie__info">
@@ -230,11 +212,11 @@ const Movie = () => {
                     </div>
                 </section>
                 <section className="movie__section movie__section-info">
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-release">
                         <h3 className="movie__subtitle">Released Year</h3>
                         <p className="movie__text">{movieData?.release_year}</p>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-language">
                         <h3 className="movie__subtitle">Available Languages</h3>
                         <div className='movie__detail-container'>
                             {movieData?.languages?.map((info, index) => (
@@ -242,14 +224,14 @@ const Movie = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-rating">
                         <h3 className="movie__subtitle">Ratings</h3>
                         <div className="review-card__rating">
                             <ReactStars {...thirdExample} />
                             <p className='review-card__rating-text'>{averageRating}</p>
                         </div>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-genre">
                         <h3 className="movie__subtitle">Genre</h3>
                         <div className='movie__detail-container'>
                             {movieData?.genres?.map((info, index) => (
@@ -257,7 +239,7 @@ const Movie = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-director">
                         <h3 className="movie__subtitle">Director</h3>
                         <div className='movie__detail-director-music'>
                             {movieData?.directors?.map((info, index) => (
@@ -265,7 +247,7 @@ const Movie = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-music">
                         <h3 className="movie__subtitle">Music</h3>
                         <div className='movie__detail-director-music'>
                             {movieData?.music_creators?.map((info, index) => (
