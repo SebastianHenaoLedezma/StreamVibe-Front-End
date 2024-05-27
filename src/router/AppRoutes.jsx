@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
-import Movies from '../pages/Home/Movies/movies'
+import Movies from '../pages/Movies/movies'
 import AuthSwitcher from '../pages/Login'
 import Movie from '../pages/Movie'
 import Reviews from '../components/Reviews'
