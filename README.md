@@ -1,7 +1,8 @@
 # ***_StreamVibe_***
 <p align="center">
-<img align="center" width="400px" src="[https://res.cloudinary.com/dhhyc88td/image/upload/v1716765884/Sin_t%C3%ADtulo_Post_en_Instagram_bbkjqf.png]">
+<img align="center" width="400px" src="https://res.cloudinary.com/dhhyc88td/image/upload/v1716765884/Sin_t%C3%ADtulo_Post_en_Instagram_bbkjqf.png">
 </p>
+
 
 StreamVibe es un aplicativo web permite ver películas de manera online.
 
@@ -54,8 +55,6 @@ Inicie el servidor en modo desarrollo
 
 ![Static Badge](https://img.shields.io/badge/Redux-%237248B6?style=for-the-badge&logo=redux&logoColor=white&color=%237248B6)
 
-![Static Badge](https://img.shields.io/badge/Firebase-%23FFCC30?style=for-the-badge&logo=firebase&logoColor=%23F69219&color=%23FFCC30)
-
 ![Static Badge](https://img.shields.io/badge/Sass-%23C66394?style=for-the-badge&logo=sass&logoColor=white&color=%23C66394)
 
 ![Static Badge](https://img.shields.io/badge/Tailwind-%23334155?style=for-the-badge&logo=tailwind&logoColor=%2338BDF8&color=%23334155)
@@ -79,17 +78,11 @@ Inicie el servidor en modo desarrollo
 
 [Link de despliegue]()
 
-## Recursos adicionales
-#### _Prototipo de alta fidelidad_
-
-- [Figma]()
-
 
 ## Autores
 
 ![Static Badge](Sebastián Henao Ledezma)
 
-- [Sebastián Henao Ledezma](| https://www.linkedin.com/in/nathaliaacostav/)
-- [Jorge Arley Ospina](| https://www.linkedin.com/in/nathaliaacostav/)
-- [Nathalia Acosta Vélez](| https://www.linkedin.com/in/nathaliaacostav/)
+- [Sebastián Henao Ledezma](https://www.linkedin.com/in/sebas-henao/)
+- [Jorge Arley Ospina](https://www.linkedin.com/in/jorge-arley-ospina-7a5611125/)
 - [Nathalia Acosta Vélez](https://www.linkedin.com/in/nathaliaacostav/)
