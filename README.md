@@ -92,3 +92,4 @@ Inicie el servidor en modo desarrollo
 - [Sebastián Henao Ledezma](| https://www.linkedin.com/in/nathaliaacostav/)
 - [Jorge Arley Ospina](| https://www.linkedin.com/in/nathaliaacostav/)
 - [Nathalia Acosta Vélez](| https://www.linkedin.com/in/nathaliaacostav/)
+- [Nathalia Acosta Vélez](https://www.linkedin.com/in/nathaliaacostav/)
