@@ -79,7 +79,7 @@ Inicie el servidor en modo desarrollo
 
 - **vite**: un entorno de desarrollo rápido que mejora la velocidad de compilación.
 
-## Despliegue
+## Video
 
 [Video de presentación](https://res.cloudinary.com/dl1epake8/video/upload/v1716796579/gwdn1tj78lhemywdx6jk.mp4)
 
