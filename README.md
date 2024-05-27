@@ -86,8 +86,6 @@ Inicie el servidor en modo desarrollo
 
 ## Autores
 
-![Static Badge](Sebastián Henao Ledezma)
-
 - [Sebastián Henao Ledezma](https://www.linkedin.com/in/sebas-henao/)
 - [Jorge Arley Ospina](https://www.linkedin.com/in/jorge-arley-ospina-7a5611125/)
 - [Nathalia Acosta Vélez](https://www.linkedin.com/in/nathaliaacostav/)
