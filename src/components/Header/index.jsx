@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="px-5 py-4">
+    <nav className="px-5 py-4 bg-[#1E1E1E]">
       <div className="flex items-center justify-between">
         <div className="cursor-pointer">
           <img src={Logo} alt="Logo" onClick={() => handleButtonClick('/')}/>
@@ -100,11 +100,8 @@ const Header = () => {
             </button>
           ) : (
             <>
-              <button className="my-1 border-solid border-2 border-neutral-700 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/login')}>
-                Login
-              </button>
-              <button className="my-1 bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/register')}>
-                Register
+              <button className="bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 px-6 rounded-lg text-xs h-10" data-ripple-light="true" onClick={() => handleButtonClick('/login')}>
+                Sign In / Register
               </button>
             </>
           )}

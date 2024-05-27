@@ -52,7 +52,7 @@ const SingUp = ({ toggleComponent }) => {
   };
 
   return (
-    <div className="login">
+    <div className="login sm:mb-[450px] mb-[450px] md:mb-[200px]">
       <section className="login__img">
         <img src={imgFondo} alt="Background" />
       </section>
