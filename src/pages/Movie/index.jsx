@@ -152,7 +152,7 @@ const Movie = () => {
                 </section>
                 <section className="movie__section movie__section-cast">
                     <div className="movie__header">
-                        <h3 className="movie__subtitle">Cast</h3>
+                        <h3 className="movie__subtitle">Actors</h3>
                         <div className='movie__header-container'>
                             {movieData?.actors?.map((actor, index) => (
                                 <img src={actor.photo_url} alt="" key={index} className='movie__header-container-image' />

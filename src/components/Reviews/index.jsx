@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './styles.sass';
 import IconEdit from '../../assets/movie/edit.png';
 import IconClose from '../../assets/movie/close.png';
@@ -13,15 +13,12 @@ const Reviews = ({ review, onDelete, onUpdate }) => {
     const [rating, setRating] = useState(review.average_rating || 0);
     const [averageRating, setAverageRating] = useState(review.average_rating || 0);
 
-    const calculateAverageRating = (newRating) => {
-        return Math.round((rating + newRating) / 2);
-    };
-
     const handleEdit = async () => {
-        const updatedReview = { ...review, review: newReview, rating: averageRating };
+        const updatedReview = { review: newReview };
+        console.log('updatedReview', updatedReview);
         try {
-            await updateReview(review.id, updatedReview);
-            onUpdate(updatedReview);
+            await updateReview(review.id, globalUser.id, updatedReview);
+            onUpdate({ ...review, review: newReview });
             setIsEditing(false);
         } catch (error) {
             console.error('Error:', error);
@@ -45,9 +42,9 @@ const Reviews = ({ review, onDelete, onUpdate }) => {
         activeColor: "red",
         onChange: async (newValue) => {
             if (typeof newValue === 'number') {
-                const newAverage = calculateAverageRating(newValue);
                 try {
                     await createRatingOnReview({ reviewId: review.id, rating: newValue, user_id: globalUser.id });
+                    const newAverage = calculateAverageRating(newValue);
                     setRating(newValue);
                     setAverageRating(newAverage);
                 } catch (error) {
@@ -83,9 +80,15 @@ const Reviews = ({ review, onDelete, onUpdate }) => {
                     <p className="review-card__text">{review.review}</p>
                 )}
                 <div className="flex justify-end gap-4 mt-4">
-                    <button onClick={() => setIsEditing(true)} style={{ visibility: usercanEdit ? 'visible' : 'hidden' }}>
-                        <img src={IconEdit} alt="Edit" className="movie__button-icon" />
-                    </button>
+                    {isEditing ? (
+                        <button onClick={handleEdit} disabled={!usercanEdit}>
+                            Save
+                        </button>
+                    ) : (
+                        <button onClick={() => setIsEditing(true)} style={{ visibility: usercanEdit ? 'visible' : 'hidden' }}>
+                            <img src={IconEdit} alt="Edit" className="movie__button-icon" />
+                        </button>
+                    )}
                     <button onClick={handleDelete} style={{ visibility: usercanEdit ? 'visible' : 'hidden' }}>
                         <img src={IconClose} alt="Delete" className="movie__button-icon" />
                     </button>
