@@ -53,8 +53,6 @@ Inicie el servidor en modo desarrollo
 
 ![Static Badge](https://img.shields.io/badge/React-%2300D1F7?style=for-the-badge&logo=react&logoColor=%2300D1F7&color=%23133F43)
 
-![Static Badge](https://img.shields.io/badge/Redux-%237248B6?style=for-the-badge&logo=redux&logoColor=white&color=%237248B6)
-
 ![Static Badge](https://img.shields.io/badge/Sass-%23C66394?style=for-the-badge&logo=sass&logoColor=white&color=%23C66394)
 
 ![Static Badge](https://img.shields.io/badge/Tailwind-%23334155?style=for-the-badge&logo=tailwind&logoColor=%2338BDF8&color=%23334155)
