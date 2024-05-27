@@ -89,6 +89,6 @@ Inicie el servidor en modo desarrollo
 
 ![Static Badge](Sebastián Henao Ledezma)
 
-![Static Badge](Jorge Arley Ospina)
-
-![Static Badge](Nathalia Acosta Vélez | https://www.linkedin.com/in/nathaliaacostav/)
+- [Sebastián Henao Ledezma](| https://www.linkedin.com/in/nathaliaacostav/)
+- [Jorge Arley Ospina](| https://www.linkedin.com/in/nathaliaacostav/)
+- [Nathalia Acosta Vélez](| https://www.linkedin.com/in/nathaliaacostav/)
