@@ -91,9 +91,10 @@ export const createReview = async (reviewData) => {
   }
 };
 
-export const updateReview = async (reviewId, reviewData) => {
+export const updateReview = async (reviewId, userId, updateReview) => {
   try {
-    const response = await axios.put(`/reviews-update/${reviewId}/`, reviewData);
+    console.log(updateReview)
+    const response = await axios.patch(`/reviews-update/${reviewId}/${userId}/`, updateReview);
     return response.data;
   } catch (error) {
     throw error;
