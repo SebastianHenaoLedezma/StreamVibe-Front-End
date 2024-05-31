@@ -8,13 +8,13 @@ StreamVibe es un aplicativo web permite ver películas de manera online.
 
 ## Índice
 - [Demo](#demo)
-
 - [Pasos Instalación](#pasos-instalación)
 - [Ejecutar localmente](#ejecutar-localmente)
 - [Tecnologías](#tecnologías)
 - [Librerías](#librerías)
+- [Dependencias de Desarrollo](#recursos-adicionales)
 - [Despliegue](#despliegue)
-- [Recursos adicionales](#recursos-adicionales)
+- [Video](#video)
 - [Autores](#autores)
 
 ## Demo
@@ -26,7 +26,7 @@ StreamVibe es un aplicativo web permite ver películas de manera online.
 ![App Screenshot](https://res.cloudinary.com/dhhyc88td/image/upload/v1716787613/7_og4d6n.png)
 
 
-## Ejecutar localmente
+## Pasos instalación
 
 Clone el proyecto
 
@@ -66,7 +66,7 @@ Inicie el servidor en modo desarrollo
 
 ![Static Badge](https://res.cloudinary.com/dhhyc88td/image/upload/v1716786397/python_18894_y2shfo.png)
 
-## Librerías Relevantes
+## Librerías
 
 - **Bootstrap** y **Tailwindcss** **Ant Design**: usamos estas librerías para gestionar estilos y emociones en nuestra página web, dándole una apariencia única.
 
@@ -78,6 +78,11 @@ Inicie el servidor en modo desarrollo
 - **sass**: usamos SASS para gestionar estilos de manera más eficiente.
 
 - **vite**: un entorno de desarrollo rápido que mejora la velocidad de compilación.
+
+## Despliegue
+
+[Link de despliegue](https://frontend-streamvibe.vercel.app//)
+
 
 ## Video
 
