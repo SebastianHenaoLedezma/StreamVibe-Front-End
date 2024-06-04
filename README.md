@@ -1,28 +1,32 @@
 # ***_StreamVibe_***
 <p align="center">
-<img align="center" width="400px" src="[https://res.cloudinary.com/dhhyc88td/image/upload/v1716765884/Sin_t%C3%ADtulo_Post_en_Instagram_bbkjqf.png]">
+<img align="center" width="400px" src="https://res.cloudinary.com/dhhyc88td/image/upload/v1716765884/Sin_t%C3%ADtulo_Post_en_Instagram_bbkjqf.png">
 </p>
+
 
 StreamVibe es un aplicativo web permite ver películas de manera online.
 
 ## Índice
 - [Demo](#demo)
-
 - [Pasos Instalación](#pasos-instalación)
 - [Ejecutar localmente](#ejecutar-localmente)
 - [Tecnologías](#tecnologías)
 - [Librerías](#librerías)
+- [Dependencias de Desarrollo](#recursos-adicionales)
 - [Despliegue](#despliegue)
-- [Recursos adicionales](#recursos-adicionales)
+- [Video](#video)
 - [Autores](#autores)
 
 ## Demo
-![App Screenshot]()
-![App Screenshot]()
-![App Screenshot]()
+
+![App Screenshot](https://res.cloudinary.com/dhhyc88td/image/upload/v1716787621/4_1_gnh8sq.png)
+![App Screenshot](https://res.cloudinary.com/dhhyc88td/image/upload/v1716787619/1_1_cpyic3.png)
+![App Screenshot](https://res.cloudinary.com/dhhyc88td/image/upload/v1716787609/2_1_t6zqat.png)
+![App Screenshot](https://res.cloudinary.com/dhhyc88td/image/upload/v1716787613/3_1_w5np4u.png)
+![App Screenshot](https://res.cloudinary.com/dhhyc88td/image/upload/v1716787613/7_og4d6n.png)
 
 
-## Ejecutar localmente
+## Pasos instalación
 
 Clone el proyecto
 
@@ -52,17 +56,17 @@ Inicie el servidor en modo desarrollo
 
 ![Static Badge](https://img.shields.io/badge/React-%2300D1F7?style=for-the-badge&logo=react&logoColor=%2300D1F7&color=%23133F43)
 
-![Static Badge](https://img.shields.io/badge/Redux-%237248B6?style=for-the-badge&logo=redux&logoColor=white&color=%237248B6)
-
-![Static Badge](https://img.shields.io/badge/Firebase-%23FFCC30?style=for-the-badge&logo=firebase&logoColor=%23F69219&color=%23FFCC30)
-
 ![Static Badge](https://img.shields.io/badge/Sass-%23C66394?style=for-the-badge&logo=sass&logoColor=white&color=%23C66394)
 
 ![Static Badge](https://img.shields.io/badge/Tailwind-%23334155?style=for-the-badge&logo=tailwind&logoColor=%2338BDF8&color=%23334155)
 
 ![Static Badge](https://img.shields.io/badge/AntD-%23334155?style=for-the-badge&logo=ant%20design&logoColor=white&color=%23177DFE)
 
-## Librerías Relevantes
+![Static Badge](https://res.cloudinary.com/dhhyc88td/image/upload/v1716786534/django_plain_logo_icon_146558_rfawig.png)
+
+![Static Badge](https://res.cloudinary.com/dhhyc88td/image/upload/v1716786397/python_18894_y2shfo.png)
+
+## Librerías
 
 - **Bootstrap** y **Tailwindcss** **Ant Design**: usamos estas librerías para gestionar estilos y emociones en nuestra página web, dándole una apariencia única.
 
@@ -77,19 +81,16 @@ Inicie el servidor en modo desarrollo
 
 ## Despliegue
 
-[Link de despliegue]()
+[Link de despliegue](https://frontend-streamvibe.vercel.app//)
 
-## Recursos adicionales
-#### _Prototipo de alta fidelidad_
 
-- [Figma]()
+## Video
+
+[Video de presentación](https://res.cloudinary.com/dl1epake8/video/upload/v1716796579/gwdn1tj78lhemywdx6jk.mp4)
 
 
 ## Autores
 
-![Static Badge](Sebastián Henao Ledezma)
-
-- [Sebastián Henao Ledezma](| https://www.linkedin.com/in/nathaliaacostav/)
-- [Jorge Arley Ospina](| https://www.linkedin.com/in/nathaliaacostav/)
-- [Nathalia Acosta Vélez](| https://www.linkedin.com/in/nathaliaacostav/)
+- [Sebastián Henao Ledezma](https://www.linkedin.com/in/sebas-henao/)
+- [Jorge Arley Ospina](https://www.linkedin.com/in/jorge-arley-ospina-7a5611125/)
 - [Nathalia Acosta Vélez](https://www.linkedin.com/in/nathaliaacostav/)
