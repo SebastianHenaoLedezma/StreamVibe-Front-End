@@ -47,6 +47,13 @@ const SingUp = ({ toggleComponent }) => {
     }
   };
 
+  const handlePhoneChange = (e) => {
+    const input = e.target.value;
+    if (!isNaN(input)) {
+      setPhoneNumber(input);
+    }
+  };
+
   const toggleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
@@ -106,9 +113,11 @@ const SingUp = ({ toggleComponent }) => {
               type="tel"
               id="phoneNumber"
               value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              onChange={handlePhoneChange}
               placeholder="Enter your phone number"
               className="login__input"
+              pattern="[0-9]*"
+              maxLength="10"
               required
             />
           </div>
