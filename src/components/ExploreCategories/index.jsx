@@ -31,12 +31,13 @@ const Generos = ({ genero }) => {
 
   return (
     <>
-      <div className="border-solid border-2 bg-[#1A1A1A] border-neutral-800 rounded-lg w-full container__genres cursor-pointer" onClick={handleButtonClick}>
+      <div className="container__genres cursor-pointer" onClick={handleButtonClick}>
         <div className="thumbnails-wrapper">
           <div className="thumbnails">
             {moviesToShow.length > 0 ? (
               moviesToShow.map((movie, index) => (
-                <img key={index} src={movie.trailer_thumbnail} alt={`imagen genero ${index}`} />
+                <img key={index} src={movie.trailer_thumbnail} style={{ width: "105.3px", height: "123.5px" }} alt={`imagen genero ${index}`} />
+
               ))
             ) : (
               <p>No hay películas disponibles.</p>
