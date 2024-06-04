@@ -15,7 +15,12 @@
         align-items: center
 
     &__video
-        width: 60% 
+        width: 100%
+        max-width: 1200px
+        height: auto
+        object-fit: contain
+        object-position: center
+        aspect-ratio: 16/9
     &__image
         width: 80%
         height: auto
@@ -79,7 +84,7 @@
 
     &__section
         margin-bottom: 20px
-        background-color: #1e1e1e
+        background-color: $color-black-10
         padding: 50px
         border-radius: 8px
 
@@ -127,7 +132,8 @@
 
             &-image
                 width: 100px
-                height: auto
+                height: 100px
+                border-radius: 10%
 
     &__cast
         display: flex
