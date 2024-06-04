@@ -1,6 +1,4 @@
-
 @use '../../styles/variables.sass' as *
-
 
 .container__genres
     width: 295.4px
@@ -10,35 +8,32 @@
     display: flex
     flex-direction: column
     align-items: center
-    
-    padding: 10px 
-   
-    .thumbnails-wrapper
-        position: relative
-        .thumbnails
-            border-radius: 12
-            display: grid
-            grid-template-columns: repeat(2, 1fr)
-            align-items: center
-            gap: 10px
-            background-color: $color-black-10
-            padding: 20px 20px 10px
-            
-            
-            img
-                width: 115.2px
-                height: 123.5px
-                object-fit: cover
-                border-radius: 10px
-        .overlay
-            position: absolute
-            top: 0
-            left: 0
-            width: 100%
-            height: 100%
-            background: rgb(26,26,26)
-            background: linear-gradient(180deg, rgba(26, 26, 26, 0.164) 0%, rgba(26,26,26,1) 100%)
-            pointer-events: none 
+    padding: 10px
+
+.thumbnails-wrapper
+    position: relative
+    .thumbnails
+        border-radius: 12
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        align-items: center
+        gap: 10px
+        background-color: $color-black-10
+        padding: 20px 20px 10px
+    img
+        width: 115.2px
+        height: 123.5px
+        object-fit: cover
+        border-radius: 10px
+    .overlay
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background: rgb(26,26,26)
+        background: linear-gradient(180deg, rgba(26, 26, 26, 0.164) 0%, rgba(26,26,26,1) 100%)
+        pointer-events: none
 
 .cardDescription
     display: flex
@@ -49,39 +44,91 @@
     font-family: $font-source
     font-size: 18px
     width: 100%
-.cardDescription a
+
+a
     cursor: pointer
     background: rgb(26,26,26)
 
+.slider
+    position: relative
+    width: 100%
+    overflow: hidden
 
-.navigation-buttons
-    position: absolute
-    top: 50%
-    transform: translateY(-50%)
+.controls
     display: flex
     justify-content: space-between
-    width: 100%
+    align-items: center
+    width: 257px
+    height: 88px
+    background-color: #0F0F0F
+    border-radius: 12px
+    padding: 0 10px
 
-    button
-        background: #1e1e1e
-        border: none
-        color: #fff
-        padding: 10px
-        cursor: pointer
+    .arrow-button
+        width: 56px
+        height: 56px
+        background-color: #1A1A1A
+        border-radius: 8px
         display: flex
         align-items: center
         justify-content: center
+        cursor: pointer
         transition: background 0.3s
+    &:hover
+        background: #333
 
-        &:hover
-            background: #333
+    .arrow-icon
+        width: 28px
+        height: 28px
+        fill: #FFFFFF
 
-        &:disabled
-            cursor: not-allowed
-            opacity: 0.5
+    .progress-container
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 81px
+        height: 4px
 
-    .prev-button
-        left: 0
+    .progress-bar
+        display: flex
+        align-items: center
+        width: 100%
+        height: 4px
 
-    .next-button
-        right: 0
+        .progress-segment
+            height: 4px
+            background-color: #333333
+            border-radius: 100px
+
+        &.active
+            background-color: #790000
+
+        &:first-child
+            width: 23px
+
+        &:not(:first-child)
+            width: 16.33px
+
+.slider-progress
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 81px
+    height: 4px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.progress-segment
+    background-color: #333333
+    border-radius: 100px
+
+    &.active
+        background-color: #790000
+
+    &:first-child
+        width: 23px
+    &:not(:first-child)
+        width: 16.33px
+        height: 4px

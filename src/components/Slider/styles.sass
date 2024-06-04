@@ -1,0 +1,51 @@
+@use '../../styles/variables.sass' as *
+
+.slider
+  width: 100%
+  overflow: hidden
+
+
+.slider-controls
+  width: 257px
+  height: 88px
+  border-radius: 12px
+  border: 1px solid $color-black-20
+  background-color: $color-black-06
+  margin-bottom: 20px
+  margin-left: auto
+  padding: 0 5px
+
+.slider-controls
+  display: flex
+  align-items: center
+  margin-right: 42px
+
+
+.sliderButton
+  width: 56px
+  height: 56px
+  background-color: $color-black-10
+  border-radius: 8px
+  margin: 10px
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid $color-black-12
+  
+
+.slider-progress
+  flex-grow: 1
+  height: 4px
+  background-color: $color-black-20
+  position: static
+  margin-left: 60px
+
+.progress-bar
+  background-color: $color-red-50
+  height: 100%
+  transition: width 0.3s
+
+.slider-cards
+  display: flex
+  gap: 20px
+  transition: transform 0.3s

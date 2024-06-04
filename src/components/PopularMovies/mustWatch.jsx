@@ -14,7 +14,7 @@ const MustWatch = ({movie}) => {
     try {
       const movieResult = await getMovieById(movie.id);
       setMovieData(movieResult);
-      navigate(`/movie/${movie.id}`, { state: { movieData: movieResult } });
+      navigate(`/movie/${movie.id}`, { state: { movieData: movieResult.id } });
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +33,7 @@ const MustWatch = ({movie}) => {
 
   };
   return (
-    <div className=' border-solid border-2 bg-[#1A1A1A] border-neutral-700 rounded-lg p-4 cursor-pointer' onClick={handleClick}>
+    <div className=' border-solid border-2 bg-[#1A1A1A] border-neutral-800 rounded-lg p-4 cursor-pointer' onClick={handleClick}>
       <div className="grid grid-cols-1 gap-2">
         <img src={movie.trailer_image_url} alt='img' className="h-[250px] rounded-md" />
       </div>
@@ -43,6 +43,7 @@ const MustWatch = ({movie}) => {
         </div>
         <div className='flex justify-center items-center'>
           <ReactStars {...thirdExample} />
+          <span className='ms-1 text-sm '> {movie.total_rating}</span>
         </div>
       </div>
     </div>

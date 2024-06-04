@@ -14,6 +14,8 @@
         justify-content: center
         align-items: center
 
+    &__video
+        width: 60% 
     &__image
         width: 80%
         height: auto
@@ -57,8 +59,6 @@
         cursor: pointer
         transition: background-color 0.3s
 
-        &:hover
-            background-color: #0056b3
 
         &-icon
             width: 20px
@@ -72,6 +72,10 @@
         grid-template-rows: repeat(3, auto)
         grid-template-areas: "description description info" "cast cast info" "reviews reviews info"
         gap: 2em
+        
+        @media (max-width: 1050px)
+            grid-template-columns: repeat(1, 1fr)
+            grid-template-areas: "description" "cast" "info" "reviews"
 
     &__section
         margin-bottom: 20px
@@ -93,6 +97,12 @@
             flex-direction: column
             gap: 10px
             grid-area: info
+            
+            @media (max-width: 1050px)
+                display: grid
+                grid-template-columns: repeat(2, 1fr)
+                grid-template-areas: "release language" "rating genre" "director music"
+
 
     &__subtitle
         font-size: 20px
@@ -153,7 +163,18 @@
             display: flex
             flex-direction: column
             gap: 15px
-
+        &-release
+            grid-area: release
+        &-language
+            grid-area: language
+        &-rating
+            grid-area: rating
+        &-genre
+            grid-area: genre
+        &-director
+            grid-area: director
+        &-music
+            grid-area: music
 .slick-track
     display: flex
     gap: 2em

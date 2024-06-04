@@ -21,10 +21,10 @@ const TopGenres = ({genres}) => {
   };
 
   return (
-    <div className=' border-solid border-2 bg-[#1A1A1A] border-neutral-700 rounded-lg p-4 cursor-pointer' onClick={handleButtonClick}>
+    <div className='border-solid border-2 bg-[#1A1A1A] border-neutral-800 rounded-lg p-4 cursor-pointer' onClick={handleButtonClick}>
       <div className="grid grid-cols-2 gap-2">
         {genres.movies.map((img, index) => (
-          <img src={img.trailer_thumbnail} alt={index} key={index} className="h-[100px] rounded-md" /> 
+          <img src={img.trailer_thumbnail} alt={index} key={index} className="h-[100px] rounded-md gradientImage" /> 
         ))}
       </div>
       <div className="flex justify-between items-center">

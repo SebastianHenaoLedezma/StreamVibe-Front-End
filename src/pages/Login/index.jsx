@@ -7,7 +7,8 @@ import "./styles.sass";
 
 
 const AuthSwitcher = () => {
-    const [showSignUp, setShowSignUp] = useState(true);
+    const [showSignUp, setShowSignUp] = useState(false);
+    
 
     const toggleComponent = () => {
         setShowSignUp((prevShowSignUp) => !prevShowSignUp);

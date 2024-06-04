@@ -1,19 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import AppRoutes from './router/AppRoutes.jsx'
-import './index.css'
-import Home from './pages/Home/index.jsx'
-import Header from './components/Header'
-import './styles/global.sass'
-import Footer from './components/Footer'
+import React from 'react';
+import { createRoot } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './router/AppRoutes.jsx';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { UserProvider } from './context/UserContext.jsx';
+import './index.css';
+import './styles/global.sass';
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-   <BrowserRouter>
-      <Header />
-      <AppRoutes />
-      <Footer />
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <Header />
+        <AppRoutes />
+        <Footer />
+      </BrowserRouter>
+    </UserProvider>
   </React.StrictMode>
 );

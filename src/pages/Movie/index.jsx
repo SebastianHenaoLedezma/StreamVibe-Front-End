@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './styles.sass';
 import IconPlay from '../../assets/movie/play.png';
 import IconAdd from '../../assets/movie/add.png';
@@ -8,10 +8,12 @@ import CardDirecMusic from '../../components/DirectorMusic';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ReactStars from "react-rating-stars-component";
-import { createReview, getMovieById } from '../../services/apiService';
-import { useLocation } from 'react-router-dom';
+import { createRatingOnMovie, createReview, getMovieById } from '../../services/apiService';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 
 const Movie = () => {
+    const { globalUser } = useContext(UserContext);
     const location = useLocation();
     const movieId = location.state.movieData;
     const [movieData, setMovieData] = useState([]);
@@ -21,11 +23,21 @@ const Movie = () => {
     const [name, setName] = useState('');
     const [review, setReview] = useState('');
     const [trailerPlayed, setTrailerPlayed] = useState(false);
-    const [playButtonClicked, setPlayButtonClicked] = useState(false);
 
-    const [reviews, setReviews] = useState();
+    const navigate = useNavigate();
 
-    const onOpenModal = () => setOpen(true);
+    const [reviews, setReviews] = useState([]);
+    const [userRating, setUserRating] = useState(0);
+    const [averageRating, setAverageRating] = useState(0);
+
+    const onOpenModal = () => {
+        if (globalUser) {
+            setOpen(true);
+        } else {
+            navigate("/login", { state: { from: location } });
+        }
+    };
+
     const onCloseModal = () => setOpen(false);
 
     useEffect(() => {
@@ -34,6 +46,7 @@ const Movie = () => {
                 const getInfoMovie = await getMovieById(movieId);
                 setMovieData(getInfoMovie);
                 setReviews(getInfoMovie.reviews || []);
+                setAverageRating(Math.round(getInfoMovie.ratings || 0));
             } catch (error) {
                 setError(error);
             } finally {
@@ -42,7 +55,7 @@ const Movie = () => {
         };
 
         getData();
-    }, []);
+    }, [movieId]);
 
     useEffect(() => {
         setTimeout(() => setLoading(false), 1000);
@@ -52,9 +65,8 @@ const Movie = () => {
         e.preventDefault();
 
         const reviewData = {
-            name: name,
+            user_id: globalUser.id,
             review: review,
-            ratings: null,
             movie_id: movieData.id,
         };
 
@@ -78,10 +90,6 @@ const Movie = () => {
         return () => clearTimeout(trailerTimer);
     }, []);
 
-    const handlePlayMovie = () => {
-        setPlayButtonClicked(true);
-    };
-
     const handleDeleteReview = (reviewId) => {
         const updatedReviews = reviews.filter(review => review.id !== reviewId);
         setReviews(updatedReviews);
@@ -100,36 +108,39 @@ const Movie = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    const ratingStart = movieData?.ratings?.rating__avg || 0;
+    const calculateAverageRating = (newRating) => {
+        const currentRating = movieData.ratings || 0;
+        return Math.round((currentRating + newRating) / 2);
+    };
+
     const thirdExample = {
         size: 15,
         count: 5,
-        value: ratingStart,
+        value: averageRating,
         color: "white",
         activeColor: "red",
-        isHalf: true,
+        onChange: async (newValue) => {
+            if (typeof newValue === 'number') {
+                const newAverage = calculateAverageRating(newValue);
+                try {
+                    await createRatingOnMovie({ movieId: movieData.id, rating: newValue, user_id: globalUser.id });
+                    setUserRating(newValue);
+                    setAverageRating(newAverage);
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            } else {
+                console.error('Invalid rating value:', newValue);
+            }
+        },
     };
-    console.log(movieData)
 
     return (
         <section className="movie">
             <section className="movie__main">
-                {trailerPlayed ? (
-                    <video src={movieData?.movie_url} controls autoPlay className="h-[60vh] w-[97vw] movie__video"></video>
-                ) : (
-                    <img src={movieData.trailer_image_url} alt="" className="h-[60vh] w-[97vw] movie__image" />
-                )}
+                <video src={movieData?.movie_url} controls autoPlay className="movie__video" poster={movieData.trailer_image_url}></video>
                 <div className="movie__details">
-                    <h2 className="movie__title">{movieData?.title}</h2>
-                    <p className="movie__description">{movieData?.description}</p>
-                    <button
-                        className="movie__button"
-                        onClick={handlePlayMovie}
-                        disabled={playButtonClicked}
-                    >
-                        <img src={IconPlay} alt="" className="movie__button-icon" />
-                        Play now
-                    </button>
+                    <h1 className="movie__title">{movieData?.title}</h1>
                 </div>
             </section>
             <section className="movie__info">
@@ -141,9 +152,9 @@ const Movie = () => {
                 </section>
                 <section className="movie__section movie__section-cast">
                     <div className="movie__header">
-                        <h3 className="movie__subtitle">Cast</h3>
+                        <h3 className="movie__subtitle">Actors</h3>
                         <div className='movie__header-container'>
-                            {movieData?.actors.map((actor, index) => (
+                            {movieData?.actors?.map((actor, index) => (
                                 <img src={actor.photo_url} alt="" key={index} className='movie__header-container-image' />
                             ))}
                         </div>
@@ -161,21 +172,12 @@ const Movie = () => {
                             onClose={onCloseModal}
                             center
                             classNames={{
-                                // overlay: 'bg-gradient-to-r from-red-300',
                                 modal: 'modal-review bg-neutral-800',
                             }}>
                             <h2 className="modal-title">Submit Your Review</h2>
                             <form onSubmit={handleSubmit} className="modal-form">
                                 <div className="form-group">
-                                    <label htmlFor="name" className="form-label">Name:</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        required
-                                        className="form-input"
-                                    />
+                                    <label htmlFor="name" className="form-label">Name: {globalUser?.name}</label>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="review" className="form-label">Review:</label>
@@ -206,49 +208,49 @@ const Movie = () => {
                             ) : (
                                 <p>No reviews available.</p>
                             )}
-
                         </div>
                     </div>
                 </section>
                 <section className="movie__section movie__section-info">
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-release">
                         <h3 className="movie__subtitle">Released Year</h3>
                         <p className="movie__text">{movieData?.release_year}</p>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-language">
                         <h3 className="movie__subtitle">Available Languages</h3>
                         <div className='movie__detail-container'>
-                            {movieData?.languages.map((info, index) => (
+                            {movieData?.languages?.map((info, index) => (
                                 <InfoLanguageGenre key={index} info={info} />
                             ))}
                         </div>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-rating">
                         <h3 className="movie__subtitle">Ratings</h3>
                         <div className="review-card__rating">
                             <ReactStars {...thirdExample} />
+                            <p className='review-card__rating-text'>{averageRating}</p>
                         </div>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-genre">
                         <h3 className="movie__subtitle">Genre</h3>
                         <div className='movie__detail-container'>
-                            {movieData?.genres.map((info, index) => (
+                            {movieData?.genres?.map((info, index) => (
                                 <InfoLanguageGenre key={index} info={info} />
                             ))}
                         </div>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-director">
                         <h3 className="movie__subtitle">Director</h3>
                         <div className='movie__detail-director-music'>
-                            {movieData?.directors.map((info, index) => (
+                            {movieData?.directors?.map((info, index) => (
                                 <CardDirecMusic key={index} info={info} />
                             ))}
                         </div>
                     </div>
-                    <div className="movie__detail">
+                    <div className="movie__detail movie__detail-music">
                         <h3 className="movie__subtitle">Music</h3>
                         <div className='movie__detail-director-music'>
-                            {movieData?.music_creators.map((info, index) => (
+                            {movieData?.music_creators?.map((info, index) => (
                                 <CardDirecMusic key={index} info={info} />
                             ))}
                         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewReleases = ({release}) => {
   return (
-    <div className=' border-solid border-2 bg-neutral-800 border-neutral-700 rounded-lg p-4'>
+    <div className=' border-solid border-2 bg-neutral-800 border-neutral-800 rounded-lg p-4'>
       <div className="grid grid-cols-1 gap-2">
         <img src={release.trailer_image_url} alt='img' className="h-[250px] rounded-md" />
       </div>
