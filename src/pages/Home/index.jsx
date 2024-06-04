@@ -13,7 +13,6 @@ import { FaPlay } from 'react-icons/fa';
 import { UserContext } from '../../context/UserContext';
 
 import jsonDevices from "../../data/devices.json";
-import jsonQuestions from "../../data/questions.json";
 import jsonGeneros from "../../data/generos.json";
 import jsonQuestions from "../../data/questions.json";
 import Loading from '../../components/loading/loading';

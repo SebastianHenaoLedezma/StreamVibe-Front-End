@@ -12,10 +12,11 @@ import { useNavigate } from "react-router-dom"
 import { UserContext } from "../../context/UserContext"
 import Loading from "../../components/loading/loading"
 import Error from "../../components/error/error"
+import Slider from "../../components/Slider"
 
 
 const Movies = () => {
-  const {globalUser} = useContext(UserContext);
+  const { globalUser } = useContext(UserContext);
 
   const [randomMovie, setRandomMovie] = useState([]);
   const [genres, setGenres] = useState([]);
@@ -56,7 +57,7 @@ const Movies = () => {
 
     getData();
   }, []);
-  
+
   if (loading) return <Loading />;
   if (error) return <Error error={error} />;
 
@@ -80,23 +81,26 @@ const Movies = () => {
       <DescriptionMovie title={randomMovie.title} desc={randomMovie.description} />
       <div className="flex justify-center mt-2 items-center  -translate-y-36">
         <button className="bg-red-800 font-bold hover:shadow-lg hover:shadow-red-500/40 rounded-lg text-xs h-10" ata-ripple-light="true">
-        <button
-          className="movie__button"
-          onClick={handleClick}
-        >
-          <img src={IconPlay} alt="" className="movie__button-icon" />
-          Play now
-        </button>
+          <button
+            className="movie__button"
+            onClick={handleClick}
+          >
+            <img src={IconPlay} alt="" className="movie__button-icon" />
+            Play now
+          </button>
         </button>
       </div>
       <section className="p-4 border-solid border-2 bg-[#1A1A1A] border-neutral-800 rounded-lg">
         <section id="genres" className="">
           <h2 className="font-bold my-4">Our Genres</h2>
-          <div className="grid grid-cols-2 xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-11">
+          <div className="" >
+            <Slider genres={genres} />
+          </div>
+          {/* <div className="grid grid-cols-2 xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-11">
             {genres.map((genero, index) => (
               <Generos genero={genero} key={index} />
             ))}
-          </div>
+          </div> */}
         </section>
         <section id="popular" className="">
           <h2 className="font-bold my-4">Popular Top 10 In Genres</h2>
@@ -118,7 +122,7 @@ const Movies = () => {
           <h2 className="font-bold my-4">Must - Watch Movies </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-11">
             {mustWatch.map((movie, index) => (
-              <MustWatch key={index} movie={movie}/>
+              <MustWatch key={index} movie={movie} />
             ))}
           </div>
         </section>
