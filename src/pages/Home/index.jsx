@@ -14,6 +14,8 @@ import { UserContext } from '../../context/UserContext';
 import jsonDevices from "../../data/devices.json";
 import jsonGeneros from "../../data/generos.json";
 import jsonQuestions from "../../data/questions.json";
+import Loading from '../../components/loading/loading';
+import Error from '../../components/error/error';
 
 const Home = () => {
   const [genres, setGenres] = useState([]);
@@ -50,8 +52,8 @@ const Home = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <Loading />;
+  if (error) return <Error error={error} />;
 
 
   return (

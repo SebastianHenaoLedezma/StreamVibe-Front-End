@@ -10,7 +10,7 @@ const index = () => {
 
 
   return (
-    <>
+    <footer>
 
       <div className="px-4 flex-auto w-100 bg-[#0F0F0F]">
         <div className="flex">
@@ -89,7 +89,7 @@ const index = () => {
           </div>
         </div>
       </div>
-    </>
+    </footer>
   )
 }
 
