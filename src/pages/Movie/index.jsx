@@ -115,11 +115,6 @@ const Movie = () => {
         return Math.round((currentRating + newRating) / 2);
     };
 
-    const calculateAverageRating = (newRating) => {
-        const currentRating = movieData.ratings || 0;
-        return Math.round((currentRating + newRating) / 2);
-    };
-
     const thirdExample = {
         size: 15,
         count: 5,
