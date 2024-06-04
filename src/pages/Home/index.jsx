@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/icons/Logo.png';
 import { getGenres, getFaqs } from '../../services/apiService';
+import Generos from "../../components/ExploreCategories";
 import ExploreCategories from '../../components/ExploreCategories';
 import FrecuentlyQuestions from '../../components/FrecuentlyQuestions';
 import StreamingDevices from '../../components/StreamingDevices';
@@ -13,6 +14,10 @@ import { UserContext } from '../../context/UserContext';
 
 import jsonDevices from "../../data/devices.json";
 import jsonQuestions from "../../data/questions.json";
+import jsonGeneros from "../../data/generos.json";
+import jsonQuestions from "../../data/questions.json";
+import Loading from '../../components/loading/loading';
+import Error from '../../components/error/error';
 
 const Home = () => {
   const [genres, setGenres] = useState([]);
@@ -49,8 +54,8 @@ const Home = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <Loading />;
+  if (error) return <Error error={error} />;
 
   return (
     <main className="Home px-5">
@@ -123,7 +128,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-
       <div className="bannerHome">
         <img
           src="https://res.cloudinary.com/dhhyc88td/image/upload/v1716093298/Container_cdluor.png"

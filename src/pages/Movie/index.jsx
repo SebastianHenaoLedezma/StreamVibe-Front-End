@@ -11,6 +11,8 @@ import ReactStars from "react-rating-stars-component";
 import { createRatingOnMovie, createReview, getMovieById } from '../../services/apiService';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
+import Loading from '../../components/loading/loading';
+import Error from '../../components/error/error';
 
 const Movie = () => {
     const { globalUser } = useContext(UserContext);
@@ -105,8 +107,13 @@ const Movie = () => {
         setReviews(updatedReviews);
     };
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+    if (loading) return <Loading />;
+    if (error) return <Error error={error} />;
+
+    const calculateAverageRating = (newRating) => {
+        const currentRating = movieData.ratings || 0;
+        return Math.round((currentRating + newRating) / 2);
+    };
 
     const calculateAverageRating = (newRating) => {
         const currentRating = movieData.ratings || 0;

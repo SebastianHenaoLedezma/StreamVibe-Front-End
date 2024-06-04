@@ -10,6 +10,8 @@ import Generos from "../../components/ExploreCategories"
 import IconPlay from '../../assets/movie/play.png';
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "../../context/UserContext"
+import Loading from "../../components/loading/loading"
+import Error from "../../components/error/error"
 
 
 const Movies = () => {
@@ -55,8 +57,8 @@ const Movies = () => {
     getData();
   }, []);
   
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <Loading />;
+  if (error) return <Error error={error} />;
 
   const handleClick = async () => {
     setLoading(true);
